@@ -2,13 +2,19 @@
 <html ng-app="uxlunch">
   <head>
     <link rel="stylesheet" href="../static/css/reset.css" />
+    <link rel="stylesheet" href="../static/css/typography.css" />    
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/css/typography.css" />
   </head>
   <body>
     <div class="content" ng-controller="FormController as formController">
         <div class="landing" ng-show="currentStep === 0" ng-model="selectedLanguage">
             <h1>Welcome to the National Lunch Program</h1>
+            <div class="center">
             <label for="languageSelection">Pick a language</label>
             <select name="languageSelection" id="languageSelection" ng-options="language.name for language in languageOptions track by language.id" ng-model="selectedLanguage" ng-change="setLanguage()"></select>
+        </div>
         </div>
 
         <form name="registration" id="registration">
@@ -31,21 +37,22 @@
                         <li>Participating schools can also receive donated commodity food from the USDA</li>
                         </ul>
 
-                        <h2>Why should my student sign up?</h2>
+                        <h3>Why should my student sign up?</h3>
                         <ul>
                         <li>Qualified students get access to a balanced, nutritious lunch that includes whole grains, fruits, vegetables and milk</li>
                         <li>Better food means better grades! Well balanced nutrition improves academic performance and concentration.</li>
                         <li>Teaching students about good nutrition prepares them to stay healthier in life.</li></ul>
 
-                        <h2>Schools and programs benefit too</h2>
+                        <h3>Schools and programs benefit too</h3>
                         <ul>
                         <li>Having students sign up means cash reimbursements for schools</li>
                         <li>Funds wellness policies to help schools address obesity problems and promote physical activity</li>
-
-
-                        <button ng-click="changeSection(0)">Previous</button>
-                        <button>Print PDFs</button>
-                        <button ng-click="changeSection(2)">Register Online</button>
+                        </ul>
+                        <div class="buttongroup">
+                        <button ng-click="changeSection(0)" class="secondarybutton">Previous</button>
+                        <button ng-click="changeSection(2)" class="primarybutton floatright">Register Online</button>
+                        <button class="tertiarybutton floatright marginright">Print PDF</button>
+                        </div>
                     </div>
                 </div>
                 <div class="step-2" ng-show="currentStep === 2">
@@ -53,11 +60,11 @@
                     <div>
                         <div class="childName">
                             <label for="firstName">First name</label>
-                            <input type="text" name="firstName" id="firstName" placeholder="First Name" />
+                            <input type="text" name="firstName" id="firstName" />
                             <label for="middleInitial">MI</label>
-                            <input type="text" name="middleInitial" id="middleInitial" placeholder="MI" />
+                            <input type="text" name="middleInitial" id="middleInitial" />
                             <label for="lastName">Last Name</label>
-                            <input type="text" name="lastName" id="lastname" placeholder="Last Name" />
+                            <input type="text" name="lastName" id="lastname" />
                         </div>
 
                         <div class="childType">
@@ -78,10 +85,11 @@
                                 <input type="checkbox" name="runaway" id="runaway" />Runaway
                             </div>
                         </div>
-
-                        <button>+Child</button>
-                        <button ng-click="changeSection(1)">Previous</button>
-                        <button ng-click="changeSection(3)">Next</button>
+                        <div class="buttongroup">
+                        <button class="tertiarybutton">+Child</button>
+                        <button ng-click="changeSection(1)" class="secondarybutton">Previous</button>
+                        <button ng-click="changeSection(3)" class="floatright primarybutton">Next</button>                        
+                        </div>
                     </div>
                 </div>
                 <div class="step-3" ng-show="currentStep === 3">
@@ -92,18 +100,20 @@
                         <input type="checkbox" name="govt_type" value="TANF" checked> TANF<br>
                         <input type="checkbox" name="govt_type" value="FDPIR" checked> FDPIR<br>
                         <input type="checkbox" name="govt_type" value="NONE" checked> NONE<br>
-
-
-                        <button ng-click="changeSection(2)">Previous</button>
-                        <button ng-click="changeSection(4)">Next</button>
+                        <div class="buttongroup">
+                        <button ng-click="changeSection(2)" class="secondarybutton">Previous</button>
+                        <button ng-click="changeSection(4)" class="primarybutton floatright">Next</button>
+                        </div>
                     </div>
                 </div>
                 <div class="step-4" ng-show="currentStep === 4">
                     <div>
                         <h2>How many people are in your household?</h2>
                         <input type="number" placeholder="# of people" />
-                        <button ng-click="changeSection(3)">Previous</button>
-                        <button ng-click="changeSection(5)">Next</button>
+                        <div class="buttongroup">                        
+                        <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
+                        <button ng-click="changeSection(5)" class="primarybutton floatright">Next</button>
+                        </div>
                     </div>
                 </div>
                 <div class="step-5" ng-show="currentStep === 5">
@@ -123,9 +133,10 @@
                         <input type="radio" name="childIncome" value="4" />Monthly
                         <input type="radio" name="childIncome" value="5" />Bi-Monthly
                         <input type="radio" name="childIncome" value="6" />Annual
-
-                        <button ng-click="changeSection(4)">Previous</button>
-                        <button ng-click="changeSection(6)">Next</button>
+                        <div class="buttongroup">
+                        <button ng-click="changeSection(4)" class="secondarybutton">Previous</button>
+                        <button ng-click="changeSection(6)" class="primarybutton floatright">Next</button>
+                        </div>
                     </div>
                 </div>
                 <div class="step-6" ng-show="currentStep === 6">
@@ -134,7 +145,7 @@
                         <p>Each person who makes money must be listed.  If they have multiple sources of income, please add each source of income next to
                         their name.</p>
 
-                        <button>Source -</button>
+                        <button class="tertiarybutton">Source -</button>
                         <p>Source:</p>
                         <select>
                             <option>Source 1</option>
@@ -142,7 +153,7 @@
                         </select>
                         <p>Amount:</p>
                         $<input type="number" placeholder="Amount" name="childAmount" />
-                        <button>Source +</button>
+                        <button class="tertiarybutton">Source +</button>
 
                         <p>Frequency</p>
                         <input type="radio" name="childIncome" value="1" />Hourly
@@ -151,10 +162,11 @@
                         <input type="radio" name="childIncome" value="4" />Monthly
                         <input type="radio" name="childIncome" value="5" />Bi-Monthly
                         <input type="radio" name="childIncome" value="6" />Annual
-
-                        <button>+ Person</button>
-                        <button ng-click="changeSection(5)">Previous</button>
-                        <button ng-click="changeSection(7)">Next</button>
+                        <div class="buttongroup">
+                        <button class="tertiarybutton">+ Person</button>
+                        <button ng-click="changeSection(5)" class="secondarybutton">Previous</button>
+                        <button ng-click="changeSection(7)" class="primarybutton floatright">Next</button>
+                        </div>
                     </div>
                 </div>
                 <div class="step-7" ng-show="currentStep === 7">
@@ -164,43 +176,64 @@
                         XXX-XX-<input type="text" name="ssn"><br><br>
 
                         <input type="checkbox" name="no_ssn" value="NULL" checked> No SSN<br>
-
-                        <button ng-click="changeSection(6)">Previous</button>
-                        <button ng-click="changeSection(8)">Next</button>
+                        <div class="buttongroup">
+                        <button ng-click="changeSection(6)" class="secondarybutton">Previous</button>
+                        <button ng-click="changeSection(8)" class="primarybutton floatright">Next</button>
+                        </div>
                     </div>
                 </div>
                 <div class="step-8" ng-show="currentStep === 8">
                     <h2>What is your contact information?</h2>
 
-                    If you are homeless, you can add a previous, family/friend's, or your shelter's address.<br><br>
+                    If you are homeless, you can add a previous, family or friend's, or your shelter's address.<br><br>
 
-
+                    <div class="streetaddressfield">
                     Street Address<br>
-                    <input type="text" name="street_address"><br>
+                    <input type="text" name="street_address">
+                    </div>
+                    <div class="aptfield">                    
                     Apt. #<br>
                     <input type="text" name="apt_num"><br>
+                    </div>
+                    <div class="cityfield">                    
                     City<br>
                     <input type="text" name="city"><br>
+                    </div>
+                    <div class="statefield">                    
                     State<br>
                     <input type="text" name="state"><br>
+                    </div>
+                    <div class="zipcodefield">                    
                     Zip Code<br>
                     <input type="text" name="zip_code"><br>
+                    </div>
+                    <div class="emailfield">                    
                     Email Address<br>
                     <input type="text" name="email"><br>
+                    </div>
+                    <div class="phonenumberfield">                    
                     Phone Number<br>
                     <input type="text" name="phone"><br>
+                    </div>
+                    <div class="firstnamefield">
                     Your First Name<br>
                     <input type="text" name="firstname"><br>
                     MI<br>
+                    </div>
+                    <div class="middleinitialfield">                    
                     <input type="text" name="middleinitial"><br>
                     Last Name<br>
+                    </div>
+                    <div class="lastnamefield">                    
                     <input type="text" name="lastname"><br>
-
-                    <br><br><br><br>
+                    </div>
+                    <br><br>
                     Enter your initials to e-sign<br>
                     <input type="text" name="initials"><br>
-                    <button ng-click="changeSection(3)">Previous</button>
-                    <button>Submit</button>
+                        <div class="buttongroup">                    
+                    <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
+                    <button class="primarybutton floatright">Submit</button>
+                    </div>
                 </div>
             </div>
             </div>
