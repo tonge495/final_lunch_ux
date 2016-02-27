@@ -111,12 +111,17 @@ input#middleInitial {
     width: 50px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="number"] {
     background-color: #f1f1f1;
     border-style: none;
     border-radius: 5px;
     color: black;
     padding: 5px 10px;
     border: 1px solid #f1f1f1;
+}
+
+/* checkboxes */
+.studenticon, .fostericon {
+	display:inline-block;
 }
 
