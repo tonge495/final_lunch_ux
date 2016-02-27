@@ -31,27 +31,28 @@
                         <h3>How it works</h2>
 
                         <ul>
-                        <li>The US Department of Agriculture (USDA) provides schools with funding for low-cost, healthy meals</li>
-                        <li>Schools must prove that meals meet federal nutrition standards</li>
-                        <li>Funds may be used to cover food, administration, and staffing costs</li>
-                        <li>Participating schools can also receive donated commodity food from the USDA</li>
+                            <li>The US Department of Agriculture (USDA) provides schools with funding for low-cost, healthy meals</li>
+                            <li>Schools must prove that meals meet federal nutrition standards</li>
+                            <li>Funds may be used to cover food, administration, and staffing costs</li>
+                            <li>Participating schools can also receive donated commodity food from the USDA</li>
                         </ul>
 
                         <h3>Why should my student sign up?</h3>
                         <ul>
-                        <li>Qualified students get access to a balanced, nutritious lunch that includes whole grains, fruits, vegetables and milk</li>
-                        <li>Better food means better grades! Well balanced nutrition improves academic performance and concentration.</li>
-                        <li>Teaching students about good nutrition prepares them to stay healthier in life.</li></ul>
+                            <li>Qualified students get access to a balanced, nutritious lunch that includes whole grains, fruits, vegetables and milk</li>
+                            <li>Better food means better grades! Well balanced nutrition improves academic performance and concentration.</li>
+                            <li>Teaching students about good nutrition prepares them to stay healthier in life.</li>
+                        </ul>
 
                         <h3>Schools and programs benefit too</h3>
                         <ul>
-                        <li>Having students sign up means cash reimbursements for schools</li>
-                        <li>Funds wellness policies to help schools address obesity problems and promote physical activity</li>
+                            <li>Having students sign up means cash reimbursements for schools</li>
+                            <li>Funds wellness policies to help schools address obesity problems and promote physical activity</li>
                         </ul>
                         <div class="buttongroup">
-                        <button ng-click="changeSection(0)" class="secondarybutton">Previous</button>
-                        <button ng-click="changeSection(2)" class="primarybutton floatright">Register Online</button>
-                        <button class="tertiarybutton floatright marginright">Print PDF</button>
+                            <button ng-click="changeSection(0)" class="secondarybutton">Previous</button>
+                            <button ng-click="changeSection(2)" class="primarybutton floatright">Register Online</button>
+                            <button class="tertiarybutton floatright marginright">Print PDF</button>
                         </div>
                     </div>
                 </div>
@@ -86,9 +87,9 @@
                             </div>
                         </div>
                         <div class="buttongroup">
-                        <button class="tertiarybutton">+Child</button>
-                        <button ng-click="changeSection(1)" class="secondarybutton">Previous</button>
-                        <button ng-click="changeSection(3)" class="floatright primarybutton">Next</button>
+                            <button class="tertiarybutton" ng-click="addChild()">+Child</button>
+                            <button ng-click="changeSection(1)" class="secondarybutton">Previous</button>
+                            <button ng-click="changeSection(3)" class="floatright primarybutton">Next</button>
                         </div>
                     </div>
                 </div>
@@ -150,8 +151,8 @@
                         <h2>How many people are in your household?</h2>
                         <input type="number" placeholder="0" />
                         <div class="buttongroup">
-                        <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
-                        <button ng-click="changeSection(5)" class="primarybutton floatright">Next</button>
+                            <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
+                            <button ng-click="changeSection(5)" class="primarybutton floatright">Next</button>
                         </div>
                     </div>
                 </div>
@@ -171,8 +172,8 @@
                         <input type="radio" name="childIncome" value="5" />Bi-Monthly
                         <input type="radio" name="childIncome" value="6" />Annual
                         <div class="buttongroup">
-                        <button ng-click="changeSection(4)" class="secondarybutton">Previous</button>
-                        <button ng-click="changeSection(6)" class="primarybutton floatright">Next</button>
+                            <button ng-click="changeSection(4)" class="secondarybutton">Previous</button>
+                            <button ng-click="changeSection(6)" class="primarybutton floatright">Next</button>
                         </div>
                     </div>
                 </div>
@@ -236,8 +237,8 @@
 
                         <input type="checkbox" name="no_ssn" value="NULL" checked> No SSN<br>
                         <div class="buttongroup">
-                        <button ng-click="changeSection(6)" class="secondarybutton">Previous</button>
-                        <button ng-click="changeSection(8)" class="primarybutton floatright">Next</button>
+                            <button ng-click="changeSection(6)" class="secondarybutton">Previous</button>
+                            <button ng-click="changeSection(8)" class="primarybutton floatright">Next</button>
                         </div>
                     </div>
                 </div>
@@ -292,9 +293,9 @@
                     <input type="text" name="initials" placeholder="Initials for E-Sign">
                     </div>
                     <br>
-                        <div class="buttongroup">
-                    <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
-                    <button class="primarybutton floatright">Submit</button>
+                    <div class="buttongroup">
+                        <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
+                        <button class="primarybutton floatright">Submit</button>
                     </div>
                 </div>
             </div>
