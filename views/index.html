@@ -59,11 +59,11 @@
                     <div>
                         <div class="childName">
                             <label for="firstName">First name</label>
-                            <input type="text" name="firstName" id="firstName" />
+                            <input type="text" name="firstName" id="firstName" placeholder="First Name" />
                             <label for="middleInitial">MI</label>
-                            <input type="text" name="middleInitial" id="middleInitial" />
+                            <input type="text" name="middleInitial" id="middleInitial"  placeholder="MI"/>
                             <label for="lastName">Last Name</label>
-                            <input type="text" name="lastName" id="lastname" />
+                            <input type="text" name="lastName" id="lastname" placeholder="Last Name" />
                         </div>
 
                         <div class="childType">
@@ -181,11 +181,11 @@
                                 </div>
                             </section>
 
-                            <button ng-click="addWorkingAdult()">+ Add person</button>
+                            <button ng-click="addWorkingAdult()" class="tertiarybutton">+ Add person</button>
                         </section>
 
-                        <button ng-click="changeSection(5)">Previous</button>
-                        <button ng-click="changeSection(7)">Next</button>
+                        <button ng-click="changeSection(5)" class="secondarybutton">Previous</button>
+                        <button ng-click="changeSection(7)" class="primarybutton floatright">Next</button>
                     </div>
                 </div>
                 <div class="step-7" ng-show="currentStep === 7">
