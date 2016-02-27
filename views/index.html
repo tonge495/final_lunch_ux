@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../static/css/styles.css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">   
   </head>
   <body>
     <div class="content" ng-controller="FormController as formController">
@@ -122,7 +122,7 @@
                             <input type="checkbox" name="govt_type" value="NONE"
                             id="none_type" ng-model="program.none"
                                            ng-change="resetProgram()">
-                            <label for="none">NONE</label>
+                            <label for="none">none</label>
                         </div>
 
                         <div class="alternative" ng-show="hasProgram()">
@@ -148,7 +148,7 @@
                 <div class="step-4" ng-show="currentStep === 4">
                     <div>
                         <h2>How many people are in your household?</h2>
-                        <input type="number" placeholder="# of people" />
+                        <input type="number" placeholder="0" />
                         <div class="buttongroup">
                         <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
                         <button ng-click="changeSection(5)" class="primarybutton floatright">Next</button>
@@ -158,12 +158,10 @@
                 <div class="step-5" ng-show="currentStep === 5">
                     <div>
                         <h2>Does your child earn income?</h2>
-                        <p>Please include the total income earned by all child household members.</p>
                         <input type="radio" name="childIncome" value="1" />Yes
                         <input type="radio" name="childIncome" value="0" />No
-
-                        <p>Amount:</p>
-                        $<input type="number" placeholder="Amount" name="childAmount" />
+                        <p>Please include the total income earned by all child household members.</p>
+                        <div class="dollarSign">$<input type="number" placeholder="00.00" name="childAmount" /></div>
 
                         <p>Frequency</p>
                         <input type="radio" name="childIncome" value="1" />Hourly
@@ -203,17 +201,18 @@
                                 <section name="sources">
                                         <i class="fa fa-minus-circle"></i>
                                             <a href="#" ng-click="clearCurrentAdult()">Remove</a>
-                                        <div class="">
+                                        <div class="sourceDropdown">
                                         <div class="" ng-repeat="incomeSource in currentAdult.incomeSources">
                                             From {[{ incomeSource.source.name }]}... {[{ incomeSource.amount | currency }]}
                                         </div>
 
                                         <div class="">
                                             <select name="incomeSource" id="incomeSource" ng-options="source.name for source in incomeSources track by source.id" ng-model="currentAdult.information.income.source"></select>
+                                        </div>
+                                        </div>
                                             <input type="number" name="income" id="income" ng-model="currentAdult.information.income.amount" placeholder="$ (Amount)" />
                                             <input type="radio" name="frequency" />
-                                        </div>
-                                        </div>
+
                                         <div clas="">
                                         <div class="">
                                             <i class="fa fa-plus-circle"></i>
@@ -245,51 +244,54 @@
                 <div class="step-8" ng-show="currentStep === 8">
                     <h2>What is your contact information?</h2>
 
-                    If you are homeless, you can add a previous, family or friend's, or your shelter's address.<br><br>
+                    <div class="notification"><i class="fa fa-info"></i> If you are homeless, you can add a previous, family or friend's, or your shelter's address.</div>
 
-                    <div class="streetaddressfield">
+                    <div class="streetaddressfield addressfield">
                     Street Address<br>
-                    <input type="text" name="street_address">
+                    <input type="text" name="street_address" placeholder="Street Address">
                     </div>
-                    <div class="aptfield">
+                    <div class="aptfield addressfield">
                     Apt. #<br>
-                    <input type="text" name="apt_num"><br>
+                    <input type="text" name="apt_num" placeholder="Apt. #"><br>
                     </div>
-                    <div class="cityfield">
+                    <div class="cityfield addressfield">
                     City<br>
-                    <input type="text" name="city"><br>
+                    <input type="text" name="city" placeholder="City"><br>
                     </div>
-                    <div class="statefield">
+                    <div class="statefield addressfield">
                     State<br>
-                    <input type="text" name="state"><br>
+                    <input type="text" name="state" placeholder="State"><br>
                     </div>
-                    <div class="zipcodefield">
+                    <div class="zipcodefield addressfield">
                     Zip Code<br>
-                    <input type="text" name="zip_code"><br>
+                    <input type="text" name="zip_code" placeholder="Zip Code"><br>
                     </div>
-                    <div class="emailfield">
+                    <div class="emailfield addressfield">
                     Email Address<br>
-                    <input type="text" name="email"><br>
+                    <input type="text" name="email" placeholder="Email Address"><br>
                     </div>
-                    <div class="phonenumberfield">
+                    <div class="phonenumberfield addressfield">
                     Phone Number<br>
-                    <input type="text" name="phone"><br>
+                    <input type="text" name="phone" placeholder="Phone Number"><br>
                     </div>
-                    <div class="firstnamefield">
+                    <div class="firstnamefield addressfield">
                     Your First Name<br>
-                    <input type="text" name="firstname"><br>
-                    MI<br>
+                    <input type="text" name="firstname" placeholder="Your First Name"><br>
                     </div>
-                    <div class="middleinitialfield">
-                    <input type="text" name="middleinitial"><br>
+                    <div class="middleinitialfield addressfield">
+                    MI<br>                    
+                    <input type="text" name="middleinitial" placeholder="MI"><br>
+                    </div>
+                    <div class="lastnamefield addressfield">
                     Last Name<br>
-                    </div>
-                    <div class="lastnamefield">
-                    <input type="text" name="lastname"><br>
+                    <input type="text" name="lastname" placeholder="Last Name"><br>
                     </div>
                     <br><br>
+                    <div class="initialsfield addressfield">
                     Enter your initials to e-sign<br>
-                    <input type="text" name="initials"><br>
+                    <input type="text" name="initials" placeholder="Initials for E-Sign">
+                    </div>
+                    <br>
                         <div class="buttongroup">
                     <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
                     <button class="primarybutton floatright">Submit</button>
