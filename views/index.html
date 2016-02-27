@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../static/css/styles.css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="content" ng-controller="FormController as formController">
@@ -56,61 +57,36 @@
                 </div>
                 <div class="step-2" ng-show="currentStep === 2">
                     <h2>What is your child's information?</h2>
-                    <div ng-repeat="child in children">
-                        {[{ child.firstName }]} {[{ child.lastName }]}
-                        <a href="#" ng-click="editChild(child)">Edit</a>
-                    </div>
                     <div>
                         <div class="childName">
                             <label for="firstName">First name</label>
-                            <input type="text" name="firstName" id="firstName"
-                             placeholder="First Name"
-                             ng-model="currentChild.firstName" />
+                            <input type="text" name="firstName" id="firstName" placeholder="First Name" />
                             <label for="middleInitial">MI</label>
-                            <input type="text" name="middleInitial"
-                             id="middleInitial" placeholder="MI"
-                             ng-model="currentChild.middleInitial"/>
+                            <input type="text" name="middleInitial" id="middleInitial"  placeholder="MI"/>
                             <label for="lastName">Last Name</label>
-                            <input type="text" name="lastName" id="lastname"
-                            placeholder="Last Name"
-                            ng-model="currentChild.lastName"/>
+                            <input type="text" name="lastName" id="lastname" placeholder="Last Name" />
                         </div>
 
                         <div class="childType">
                             <p>Check all that apply:</p>
                             <div class="studentIcon">
-                                <input type="checkbox" name="student"
-                                id="student"
-                                ng-model="currentChild.statuses.student" />
-                                <label for="student">Student</label>
+                                <input type="checkbox" name="student" id="student" />Student
                             </div>
                             <div class="fosterIcon">
-                                <input type="checkbox" name="foster"
-                                id="foster"
-                                ng-model="currentChild.statuses.foster" />
-                                <label for="foster">Foster</label>
+                                <input type="checkbox" name="foster" id="foster" />Foster
                             </div>
                             <div class="studentIcon">
-                                <input type="checkbox" name="migrant"
-                                id="migrant"
-                                ng-model="currentChild.statuses.migrant" />
-                                <label for="migrant">Migrant</label>
+                                <input type="checkbox" name="migrant" id="migrant" />Migrant
                             </div>
                             <div class="studentIcon">
-                                <input type="checkbox" name="homeless"
-                                id="homeless"
-                                ng-model="currentChild.statuses.homeless" />
-                                <label for="homeless">Homeless</label>
+                                <input type="checkbox" name="homeless" id="homeless" />Homeless
                             </div>
                             <div class="studentIcon">
-                                <input type="checkbox" name="runaway"
-                                id="runaway"
-                                ng-model="currentChild.statuses.runaway" />
-                                <label for="runaway">Runaway</label>
+                                <input type="checkbox" name="runaway" id="runaway" />Runaway
                             </div>
                         </div>
                         <div class="buttongroup">
-                        <button class="tertiarybutton" ng-click="addChild()">+Child</button>
+                        <button class="tertiarybutton">+Child</button>
                         <button ng-click="changeSection(1)" class="secondarybutton">Previous</button>
                         <button ng-click="changeSection(3)" class="floatright primarybutton">Next</button>
                         </div>
@@ -218,33 +194,34 @@
                                     {[{ adult.information.firstName }]} {[{ adult.information.lastName }]}
                                     <a href="#" ng-click="editAdult(adult)">Edit</a>
                                 </div>
-                                <div class="">
+                                <div class="nameArea">
                                     <input type="text" name="firstName" placeholder="First name" ng-model="currentAdult.information.firstName" />
                                     <input type="text" name="lastName" placeholder="Last name" ng-model="currentAdult.information.lastName" />
                                 </div>
                             </section>
+                            <div class="sourcesArea">
+                                <section name="sources">
+                                        <i class="fa fa-minus-circle"></i>
+                                            <a href="#" ng-click="clearCurrentAdult()">Remove</a>
+                                        <div class="">
+                                        <div class="" ng-repeat="incomeSource in currentAdult.incomeSources">
+                                            From {[{ incomeSource.source.name }]}... {[{ incomeSource.amount | currency }]}
+                                        </div>
 
-                            <section name="sources">
-                                <div class="">
-                                    <a href="#" ng-click="clearCurrentAdult()">Remove</a>
-                                </div>
-                                <div class="">
-                                <div class="" ng-repeat="incomeSource in currentAdult.incomeSources">
-                                    From {[{ incomeSource.source.name }]}... {[{ incomeSource.amount | currency }]}
-                                </div>
-
-                                <div class="">
-                                    <select name="incomeSource" id="incomeSource" ng-options="source.name for source in incomeSources track by source.id" ng-model="currentAdult.information.income.source"></select>
-                                    <input type="number" name="income" id="income" ng-model="currentAdult.information.income.amount" placeholder="$ (Amount)" />
-                                    <input type="radio" name="frequency" />
-                                </div>
-                                </div>
-
-                                <div class="">
-                                    <a href="#" ng-click="saveIncomeSource()">Add</a>
-                                </div>
-                            </section>
-
+                                        <div class="">
+                                            <select name="incomeSource" id="incomeSource" ng-options="source.name for source in incomeSources track by source.id" ng-model="currentAdult.information.income.source"></select>
+                                            <input type="number" name="income" id="income" ng-model="currentAdult.information.income.amount" placeholder="$ (Amount)" />
+                                            <input type="radio" name="frequency" />
+                                        </div>
+                                        </div>
+                                        <div clas="">
+                                        <div class="">
+                                            <i class="fa fa-plus-circle"></i>
+                                            <a href="#" ng-click="saveIncomeSource()">Add</a>
+                                        </div>
+                            </div>
+                                </section>
+                            </div>
                             <button ng-click="addWorkingAdult()" class="tertiarybutton">+ Add person</button>
                         </section>
 
