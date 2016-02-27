@@ -56,36 +56,61 @@
                 </div>
                 <div class="step-2" ng-show="currentStep === 2">
                     <h2>What is your child's information?</h2>
+                    <div ng-repeat="child in children">
+                        {[{ child.firstName }]} {[{ child.lastName }]}
+                        <a href="#" ng-click="editChild(child)">Edit</a>
+                    </div>
                     <div>
                         <div class="childName">
                             <label for="firstName">First name</label>
-                            <input type="text" name="firstName" id="firstName" placeholder="First Name" />
+                            <input type="text" name="firstName" id="firstName"
+                             placeholder="First Name"
+                             ng-model="currentChild.firstName" />
                             <label for="middleInitial">MI</label>
-                            <input type="text" name="middleInitial" id="middleInitial"  placeholder="MI"/>
+                            <input type="text" name="middleInitial"
+                             id="middleInitial" placeholder="MI"
+                             ng-model="currentChild.middleInitial"/>
                             <label for="lastName">Last Name</label>
-                            <input type="text" name="lastName" id="lastname" placeholder="Last Name" />
+                            <input type="text" name="lastName" id="lastname"
+                            placeholder="Last Name"
+                            ng-model="currentChild.lastName"/>
                         </div>
 
                         <div class="childType">
                             <p>Check all that apply:</p>
                             <div class="studentIcon">
-                                <input type="checkbox" name="student" id="student" />Student
+                                <input type="checkbox" name="student"
+                                id="student"
+                                ng-model="currentChild.statuses.student" />
+                                <label for="student">Student</label>
                             </div>
                             <div class="fosterIcon">
-                                <input type="checkbox" name="foster" id="foster" />Foster
+                                <input type="checkbox" name="foster"
+                                id="foster"
+                                ng-model="currentChild.statuses.foster" />
+                                <label for="foster">Foster</label>
                             </div>
                             <div class="studentIcon">
-                                <input type="checkbox" name="migrant" id="migrant" />Migrant
+                                <input type="checkbox" name="migrant"
+                                id="migrant"
+                                ng-model="currentChild.statuses.migrant" />
+                                <label for="migrant">Migrant</label>
                             </div>
                             <div class="studentIcon">
-                                <input type="checkbox" name="homeless" id="homeless" />Homeless
+                                <input type="checkbox" name="homeless"
+                                id="homeless"
+                                ng-model="currentChild.statuses.homeless" />
+                                <label for="homeless">Homeless</label>
                             </div>
                             <div class="studentIcon">
-                                <input type="checkbox" name="runaway" id="runaway" />Runaway
+                                <input type="checkbox" name="runaway"
+                                id="runaway"
+                                ng-model="currentChild.statuses.runaway" />
+                                <label for="runaway">Runaway</label>
                             </div>
                         </div>
                         <div class="buttongroup">
-                        <button class="tertiarybutton">+Child</button>
+                        <button class="tertiarybutton" ng-click="addChild()">+Child</button>
                         <button ng-click="changeSection(1)" class="secondarybutton">Previous</button>
                         <button ng-click="changeSection(3)" class="floatright primarybutton">Next</button>
                         </div>

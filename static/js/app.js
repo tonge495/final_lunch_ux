@@ -38,7 +38,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
 
     // dictates which step we're in. This can be defaulted to a certain step
     // for debugging.
-    var currentStep = 3;
+    var currentStep = 2;
 
     /**
      * Returns an object containing income information. This is useful for
@@ -70,6 +70,15 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
         };
     };
 
+    var newChild = function() {
+        return {
+            firstName: null,
+            lastName: null,
+            middleInitial: null,
+            statuses: {}
+        };
+    };
+
 
     $scope.selectedLanguage = selectedLanguage;
     $scope.numberOfSteps = numberOfSteps;
@@ -81,6 +90,8 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
     $scope.workingAdults = [];
     $scope.currentAdult = newAdult();
 
+    $scope.children = [];
+    $scope.currentChild = newChild();
     /**
      * Changes the currentStep, allowing us to paginate through sections.
      * @param {Number} newSectionNumber - the page we should go to
@@ -172,6 +183,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
         });
     };
 
+
     $scope.hasProgram = function() {
         var program = $scope.program,
             hasProgram = false;
@@ -182,6 +194,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
             return key != 'none' && !!(program[key]);
         });
     };
+
 
     $scope.resetProgram = function() {
         var program = $scope.program;
@@ -195,12 +208,47 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
         }
     };
 
+
     $scope.uncheckNone = function() {
         if ($scope.hasProgram())
             $scope.program.none = false;
     };
 
+
     $scope.hasCaseNumber = function() {
         return $scope.program && $scope.program.hasCaseNumber == 'true';
+    };
+
+
+    $scope.addChild = function() {
+        var child = $scope.currentChild;
+
+        if (!isExistingChild(child)) {
+            child.id = $scope.children.length + 1;
+            $scope.children.push(child);
+            $scope.clearCurrentChild();
+        }
+    };
+
+    $scope.clearCurrentChild = function() {
+        $scope.currentChild = newChild();
+    };
+
+    var isExistingChild = function(child) {
+        if (!child) return false;
+
+        return $scope.children.some(function(kid) {
+            return kid.firstName === child.firstName &&
+                kid.lastName === child.lastName;
+        });
+    };
+
+    $scope.editChild = function(child) {
+        var indexOfChild = $scope.children.indexOf(child);
+
+        if (indexOfChild !== -1) {
+            $scope.children.splice(indexOfChild, 1);
+            $scope.currentChild = child;
+        }
     };
 }]);
