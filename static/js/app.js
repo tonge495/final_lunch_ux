@@ -179,8 +179,25 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
         if (!program || !Object.keys(program).length) return hasProgram;
 
         return Object.keys(program).some(function(key) {
-            return !!(program[key]);
+            return key != 'none' && !!(program[key]);
         });
+    };
+
+    $scope.resetProgram = function() {
+        var program = $scope.program;
+
+        if (program && program.none == true) {
+            for (var key in program) {
+                if (key != 'none') {
+                    $scope.program[key] = false;
+                }
+            }
+        }
+    };
+
+    $scope.uncheckNone = function() {
+        if ($scope.hasProgram())
+            $scope.program.none = false;
     };
 
     $scope.hasCaseNumber = function() {

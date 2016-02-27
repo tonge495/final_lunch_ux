@@ -97,26 +97,30 @@
 
                         <div class="checkboxOption">
                             <input type="checkbox" name="govt_type" value="SNAP"
-                            id="snap_type" ng-model="program.snap">
+                            id="snap_type" ng-model="program.snap"
+                                           ng-change="uncheckNone()">
                             <label for="snap_type">SNAP</label><br>
                         </div>
 
                         <div class="checkboxOption">
                             <input type="checkbox" name="govt_type" value="TANF"
-                            id="tanf_type" ng-model="program.tanf">
+                            id="tanf_type" ng-model="program.tanf"
+                                           ng-change="uncheckNone()">
                             <label for="tanf_type">TANF</label><br>
                         </div>
 
                         <div class="checkboxOption">
                             <input type="checkbox" name="govt_type"
                             value="FDPIR" id="fdpir_type"
-                            ng-model="program.fdpir">
+                                          ng-model="program.fdpir"
+                                          ng-change="uncheckNone()">
                             <label for="fdpir_type">FDPIR</label>
                         </div>
 
                         <div class="checkboxOption">
                             <input type="checkbox" name="govt_type" value="NONE"
-                            id="none_type" ng-model="program.none">
+                            id="none_type" ng-model="program.none"
+                                           ng-change="resetProgram()">
                             <label for="none">NONE</label>
                         </div>
 
