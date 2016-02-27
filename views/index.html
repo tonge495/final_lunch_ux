@@ -2,7 +2,7 @@
 <html ng-app="uxlunch">
   <head>
     <link rel="stylesheet" href="../static/css/reset.css" />
-    <link rel="stylesheet" href="../static/css/styles.css" />    
+    <link rel="stylesheet" href="../static/css/styles.css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
   </head>
@@ -87,7 +87,7 @@
                         <div class="buttongroup">
                         <button class="tertiarybutton">+Child</button>
                         <button ng-click="changeSection(1)" class="secondarybutton">Previous</button>
-                        <button ng-click="changeSection(3)" class="floatright primarybutton">Next</button>                        
+                        <button ng-click="changeSection(3)" class="floatright primarybutton">Next</button>
                         </div>
                     </div>
                 </div>
@@ -95,13 +95,48 @@
                     <div>
                         <h2>Do you currently participate in any other government program?</h2>
 
-                        <input type="checkbox" name="govt_type" value="SNAP"> SNAP<br>
-                        <input type="checkbox" name="govt_type" value="TANF" checked> TANF<br>
-                        <input type="checkbox" name="govt_type" value="FDPIR" checked> FDPIR<br>
-                        <input type="checkbox" name="govt_type" value="NONE" checked> NONE<br>
+                        <div class="checkboxOption">
+                            <input type="checkbox" name="govt_type" value="SNAP"
+                            id="snap_type" ng-model="program.snap">
+                            <label for="snap_type">SNAP</label><br>
+                        </div>
+
+                        <div class="checkboxOption">
+                            <input type="checkbox" name="govt_type" value="TANF"
+                            id="tanf_type" ng-model="program.tanf">
+                            <label for="tanf_type">TANF</label><br>
+                        </div>
+
+                        <div class="checkboxOption">
+                            <input type="checkbox" name="govt_type"
+                            value="FDPIR" id="fdpir_type"
+                            ng-model="program.fdpir">
+                            <label for="fdpir_type">FDPIR</label>
+                        </div>
+
+                        <div class="checkboxOption">
+                            <input type="checkbox" name="govt_type" value="NONE"
+                            id="none_type" ng-model="program.none">
+                            <label for="none">NONE</label>
+                        </div>
+
+                        <div class="alternative" ng-show="hasProgram()">
+                            <h3>Do you know your case number?</h3>
+                            <input type="radio" name="hasCase" value=true
+                            id="hasCase" ng-model="program.hasCaseNumber">
+                            <input type="radio" name="hasCase" value=false
+                            id="noCase" ng-model="program.hasCaseNumber">
+                            <div ng-show="hasCaseNumber()">
+                                <label class="small" for="caseNumber">
+                                    Case Number
+                                </label>
+                                <input type="text" name="caseNumber" id="caseNumber" ng-model="program.caseNumber" />
+                            </div>
+                        </div>
+
                         <div class="buttongroup">
-                        <button ng-click="changeSection(2)" class="secondarybutton">Previous</button>
-                        <button ng-click="changeSection(4)" class="primarybutton floatright">Next</button>
+                            <button ng-click="changeSection(2)" class="secondarybutton">Previous</button>
+                            <button ng-click="changeSection(4)" class="primarybutton floatright">Next</button>
                         </div>
                     </div>
                 </div>
@@ -109,7 +144,7 @@
                     <div>
                         <h2>How many people are in your household?</h2>
                         <input type="number" placeholder="# of people" />
-                        <div class="buttongroup">                        
+                        <div class="buttongroup">
                         <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
                         <button ng-click="changeSection(5)" class="primarybutton floatright">Next</button>
                         </div>
@@ -210,27 +245,27 @@
                     Street Address<br>
                     <input type="text" name="street_address">
                     </div>
-                    <div class="aptfield">                    
+                    <div class="aptfield">
                     Apt. #<br>
                     <input type="text" name="apt_num"><br>
                     </div>
-                    <div class="cityfield">                    
+                    <div class="cityfield">
                     City<br>
                     <input type="text" name="city"><br>
                     </div>
-                    <div class="statefield">                    
+                    <div class="statefield">
                     State<br>
                     <input type="text" name="state"><br>
                     </div>
-                    <div class="zipcodefield">                    
+                    <div class="zipcodefield">
                     Zip Code<br>
                     <input type="text" name="zip_code"><br>
                     </div>
-                    <div class="emailfield">                    
+                    <div class="emailfield">
                     Email Address<br>
                     <input type="text" name="email"><br>
                     </div>
-                    <div class="phonenumberfield">                    
+                    <div class="phonenumberfield">
                     Phone Number<br>
                     <input type="text" name="phone"><br>
                     </div>
@@ -239,17 +274,17 @@
                     <input type="text" name="firstname"><br>
                     MI<br>
                     </div>
-                    <div class="middleinitialfield">                    
+                    <div class="middleinitialfield">
                     <input type="text" name="middleinitial"><br>
                     Last Name<br>
                     </div>
-                    <div class="lastnamefield">                    
+                    <div class="lastnamefield">
                     <input type="text" name="lastname"><br>
                     </div>
                     <br><br>
                     Enter your initials to e-sign<br>
                     <input type="text" name="initials"><br>
-                        <div class="buttongroup">                    
+                        <div class="buttongroup">
                     <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
                     <button class="primarybutton floatright">Submit</button>
                     </div>

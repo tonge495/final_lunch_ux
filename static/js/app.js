@@ -15,8 +15,8 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
     var selectedLanguage = 'english';
 
     // number of pages to go through
-    var numberOfSteps = 10;   
-    
+    var numberOfSteps = 10;
+
     // which languages the user should be able to select from
     // TODO get the list of languages
     var languageOptions = [
@@ -38,8 +38,8 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
 
     // dictates which step we're in. This can be defaulted to a certain step
     // for debugging.
-    var currentStep = 6;
-    
+    var currentStep = 3;
+
     /**
      * Returns an object containing income information. This is useful for
      * resetting the income whenever a user discards the existing income.
@@ -170,5 +170,20 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
             return worker.information.firstName === adult.information.firstname &&
                 worker.information.lastName === adult.information.lastName;
         });
-    }
+    };
+
+    $scope.hasProgram = function() {
+        var program = $scope.program,
+            hasProgram = false;
+
+        if (!program || !Object.keys(program).length) return hasProgram;
+
+        return Object.keys(program).some(function(key) {
+            return !!(program[key]);
+        });
+    };
+
+    $scope.hasCaseNumber = function() {
+        return $scope.program && $scope.program.hasCaseNumber == 'true';
+    };
 }]);
