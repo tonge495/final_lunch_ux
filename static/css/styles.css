@@ -1,6 +1,6 @@
 /* Layout */
 body {
-	background-color: #66cbff;
+	background-color: #99ccff;
 }
 .content {
     width: 800px;
@@ -22,6 +22,7 @@ h1, h2, h3, button {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
 	line-height: 1.4em;
+
 }
 
 p, label, div, li {
@@ -29,7 +30,7 @@ p, label, div, li {
 	font-size: 14px;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
-	color: white;
+	color: #333333;
 }
 
 h1 {
@@ -38,6 +39,7 @@ h1 {
 
 h1, h2, h3{
 	color: white;
+	opacity: 0.85;
 }
 
 
@@ -56,14 +58,35 @@ button {
 
 .primarybutton {
 	background-color: #037f03;
+	opacity: 0.85;
+	border: 3px solid #037f03;
+}
+
+.primarybutton:hover {
+	opacity: 1.0;
+	border: 3px solid white;
 }
 
 .secondarybutton {
     background-color: #6699cc;
+    opacity: 0.85;
+	border: 3px solid #6699cc;    
+}
+
+.secondarybutton:hover {
+	opacity: 1.0;
+	border: 3px solid white;
 }
 
 .tertiarybutton {
 	background-color: #336799;
+	opacity: 0.85;
+	border: 3px solid #336799;	
+}
+
+.tertiarybutton:hover {
+	opacity: 1.0;
+	border: 3px solid white;
 }
 
 .marginright {
@@ -94,6 +117,6 @@ input[type="text"] {
     border-radius: 5px;
     color: black;
     padding: 5px 10px;
-    border: 1px solid #a8a8a8;
+    border: 1px solid #f1f1f1;
 }
 
