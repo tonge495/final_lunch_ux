@@ -56,6 +56,7 @@ button {
 
 .buttongroup {
 	padding:20px 0;
+	clear:left;
 }
 
 .primarybutton {
@@ -95,31 +96,99 @@ button {
     margin-right: 10px;
 }
 
+.dollarSign {
+	font-size:16px;
+}
+
 /* fields */
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #e2e2e2;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: #e2e2e2;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: #e2e2e2;
-}
-:-moz-placeholder { /* Firefox 18- */
-  color: #e2e2e2;
-}
 
 input#middleInitial {
     width: 50px;
 }
 
 input[type="text"], input[type="number"] {
-    background-color: #f1f1f1;
+    background-color: transparent;
     border-style: none;
-    border-radius: 5px;
     color: black;
     padding: 5px 10px;
-    border: 1px solid #f1f1f1;
+   	border-bottom: 3px solid #333333;
+}
+
+input[type="text"]:hover, input[type="number"]:hover {
+	border-bottom: 3px solid #037f03;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+	border-bottom: 3px solid #037f03;
+}
+
+textarea, input {
+	outline: none;
+}
+
+/* Address fields */
+.addressfield {
+    float: left;
+    margin: 10px 0;
+}
+
+.addressfield input[type="text"] {
+	width:100%;
+}
+
+.streetaddressfield {
+    width: 100%;
+    clear:both;
+}
+
+.aptfield, .cityfield, .statefield, .emailfield, .firstnamefield, .middleinitialfield {
+	margin-right: 1%;
+}
+
+.aptfield {
+    width: 10%;
+}
+
+.cityfield {
+    width: 45%;
+}
+
+.statefield {
+    width: 20%;
+}
+
+.zipcodefield {
+    width: 22%;
+}
+
+.emailfield {
+    width: 50%;
+}
+
+.phonenumberfield {
+    width: 49%;
+}
+
+.firstnamefield {
+    clear: left;
+    width: 46%;
+}
+
+.middleinitialfield {
+    width: 6%;
+}
+
+.lastnamefield {
+    width: 46%;
+}
+
+.initialsfield {
+    clear: left;
+}
+
+.initialfield {
+    float: left;
+    width: 22%;
 }
 
 /* checkboxes */
@@ -134,4 +203,28 @@ input[type="text"], input[type="number"] {
 .sourcesArea, .nameArea {
     margin: auto;
     width: 60%;
+}
+
+/* Source dropdown */
+.sourceDropdown select {
+   background: transparent;
+   width: 190px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   position:relative;
+   border-bottom: 3px solid #333333;
+   }
+
+.sourceDropdown:after {
+    overflow: hidden;
+    content: "\F078";
+    font-family: FontAwesome;
+    position: relative;
+    left: 35%;
+    bottom: 25px;
 }
