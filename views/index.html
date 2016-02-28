@@ -60,34 +60,45 @@
                     <h2>What is your child's information?</h2>
                     <div>
                         <div class="childName">
+                            <div class="firstnamefield childfield">
                             <label for="firstName">First name</label>
                             <input type="text" name="firstName" id="firstName" placeholder="First Name" />
+                            </div>
+                            <div class="middleinitialfield childfield">                            
                             <label for="middleInitial">MI</label>
                             <input type="text" name="middleInitial" id="middleInitial"  placeholder="MI"/>
+                            </div>
+                            <div class="lastnamefield childfield">                            
                             <label for="lastName">Last Name</label>
                             <input type="text" name="lastName" id="lastname" placeholder="Last Name" />
+                            </div>
                         </div>
 
                         <div class="childType">
                             <p>Check all that apply:</p>
-                            <div class="studentIcon">
-                                <input type="checkbox" name="student" id="student" />Student
+                            <div class="studentIcon checkbox">
+                                <input type="checkbox" name="student" id="student" />
+                                <label for="student">Student</label>
                             </div>
-                            <div class="fosterIcon">
-                                <input type="checkbox" name="foster" id="foster" />Foster
+                            <div class="fosterIcon checkbox">
+                                <input type="checkbox" name="foster" id="foster" />
+                                <label for="foster">Foster</label>
                             </div>
-                            <div class="studentIcon">
-                                <input type="checkbox" name="migrant" id="migrant" />Migrant
+                            <div class="studentIcon checkbox">
+                                <input type="checkbox" name="migrant" id="migrant" />
+                                <label for="migrant">Migrant</label>
                             </div>
-                            <div class="studentIcon">
-                                <input type="checkbox" name="homeless" id="homeless" />Homeless
+                            <div class="studentIcon checkbox">
+                                <input type="checkbox" name="homeless" id="homeless" />
+                                <label for="homeless">Homeless</label>
                             </div>
-                            <div class="studentIcon">
-                                <input type="checkbox" name="runaway" id="runaway" />Runaway
+                            <div class="studentIcon checkbox">
+                                <input type="checkbox" name="runaway" id="runaway" />
+                                <label for="runaway">Runaway</label>
                             </div>
                         </div>
-                        <div class="buttongroup">
                             <button class="tertiarybutton" ng-click="addChild()">+Child</button>
+                        <div class="buttongroup">                            
                             <button ng-click="changeSection(1)" class="secondarybutton">Previous</button>
                             <button ng-click="changeSection(3)" class="floatright primarybutton">Next</button>
                         </div>
@@ -97,21 +108,21 @@
                     <div>
                         <h2>Do you currently participate in any other government program?</h2>
 
-                        <div class="checkboxOption">
+                        <div class="checkboxOption checkbox">
                             <input type="checkbox" name="govt_type" value="SNAP"
                             id="snap_type" ng-model="program.snap"
                                            ng-change="uncheckNone()">
                             <label for="snap_type">SNAP</label><br>
                         </div>
 
-                        <div class="checkboxOption">
+                        <div class="checkboxOption checkbox">
                             <input type="checkbox" name="govt_type" value="TANF"
                             id="tanf_type" ng-model="program.tanf"
                                            ng-change="uncheckNone()">
                             <label for="tanf_type">TANF</label><br>
                         </div>
 
-                        <div class="checkboxOption">
+                        <div class="checkboxOption checkbox">
                             <input type="checkbox" name="govt_type"
                             value="FDPIR" id="fdpir_type"
                                           ng-model="program.fdpir"
@@ -119,24 +130,30 @@
                             <label for="fdpir_type">FDPIR</label>
                         </div>
 
-                        <div class="checkboxOption">
+                        <div class="checkboxOption checkbox">
                             <input type="checkbox" name="govt_type" value="NONE"
                             id="none_type" ng-model="program.none"
                                            ng-change="resetProgram()">
-                            <label for="none">none</label>
+                            <label for="none">None</label>
                         </div>
 
                         <div class="alternative" ng-show="hasProgram()">
                             <h3>Do you know your case number?</h3>
+                            <div class="radio">
                             <input type="radio" name="hasCase" value=true
                             id="hasCase" ng-model="program.hasCaseNumber">
-                            <input type="radio" name="hasCase" value=false
+                            <label for="hasCase">Yes</label>
+                            </div>
+                            <div class="radio">
+                            <input type="radio" name="noCase" value=false
                             id="noCase" ng-model="program.hasCaseNumber">
-                            <div ng-show="hasCaseNumber()">
+                            <label for="noCase">No</label>
+                            </div>                            
+                            <div ng-show="hasCaseNumber()" class="casenumberfield">
                                 <label class="small" for="caseNumber">
                                     Case Number
                                 </label>
-                                <input type="text" name="caseNumber" id="caseNumber" ng-model="program.caseNumber" />
+                                <input type="text" name="caseNumber" id="caseNumber" ng-model="program.caseNumber" placeholder="Case Number" />
                             </div>
                         </div>
 
@@ -149,7 +166,8 @@
                 <div class="step-4" ng-show="currentStep === 4">
                     <div>
                         <h2>How many people are in your household?</h2>
-                        <input type="number" placeholder="0" />
+                        <label for="householdNumber">Number of People</label><br>
+                        <input type="number" placeholder="(0)" name="householdNumber" />
                         <div class="buttongroup">
                             <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
                             <button ng-click="changeSection(5)" class="primarybutton floatright">Next</button>
@@ -159,18 +177,43 @@
                 <div class="step-5" ng-show="currentStep === 5">
                     <div>
                         <h2>Does your child earn income?</h2>
-                        <input type="radio" name="childIncome" value="1" />Yes
-                        <input type="radio" name="childIncome" value="0" />No
-                        <p>Please include the total income earned by all child household members.</p>
-                        <div class="dollarSign">$<input type="number" placeholder="00.00" name="childAmount" /></div>
+                        <div class="radio">
+                        <input type="radio" name="childIncome" value="1" />
+                        <label for="childIncome">Yes</label>
+                        </div>
+                        <div class="radio">
+                        <input type="radio" name="childIncome" value="0" />
+                        <label for="childIncome">No</label>
+                        </div>
+                    <div class="notification"><img src="../icons/Apple.png" class="appleIcon"> <p>Please include the total income earned by all child household members.</p></div>
+                        <label for="childAmount">Child Income</label><br>                        
+                        <input type="number" placeholder="$(00.00)" name="childAmount" /></div>
 
                         <p>Frequency</p>
-                        <input type="radio" name="childIncome" value="1" />Hourly
-                        <input type="radio" name="childIncome" value="2" />Weekly
-                        <input type="radio" name="childIncome" value="3" />Bi-Weekly
-                        <input type="radio" name="childIncome" value="4" />Monthly
-                        <input type="radio" name="childIncome" value="5" />Bi-Monthly
-                        <input type="radio" name="childIncome" value="6" />Annual
+                        <div class="radio">
+                        <input type="radio" name="childIncome" value="1" />
+                        <label for="childIncome">Hourly</label>
+                        </div>
+                        <div class="radio">                        
+                        <input type="radio" name="childIncome" value="2" />
+                        <label for="childIncome">Weekly</label>                        
+                         </div>
+                        <div class="radio">                   
+                        <input type="radio" name="childIncome" value="3" />
+                        <label for="childIncome">Bi-Weekly</label>                        
+                        </div>
+                        <div class="radio">                       
+                        <input type="radio" name="childIncome" value="4" />
+                        <label for="childIncome">Monthly</label>                        
+                        </div>
+                        <div class="radio">                        
+                        <input type="radio" name="childIncome" value="5" />
+                        <label for="childIncome">Bi-Monthly</label>                        
+                        </div>
+                        <div class="radio">                         
+                        <input type="radio" name="childIncome" value="6" />
+                        <label for="childIncome">Annual</label>                        
+                        </div>
                         <div class="buttongroup">
                             <button ng-click="changeSection(4)" class="secondarybutton">Previous</button>
                             <button ng-click="changeSection(6)" class="primarybutton floatright">Next</button>
@@ -179,13 +222,10 @@
                 </div>
                 <div class="step-6" ng-show="currentStep === 6">
                     <div>
-                        <h2>Step 4: Income Information</h2>
-                        <p>
-                            List each non-child, those who were not listed in 
-                            Step 2, even if they did not make money. If they 
-                            have multiple sources of income, please add each
-                            source of income.
-                        </p>
+                        <h2>What is your income information?</h2>
+                        <div class="notification"><img src="../icons/Apple.png" class="appleIcon"> 
+                            <p>List each non-child, those who were not listed in Step 2, even if they did not make money. If they have multiple sources of income, please add each source.</p>
+                        </div>
 
                         <section name="incomeContainer">
                             <section name="adults">
@@ -193,40 +233,44 @@
                                     {[{ adult.information.firstName }]} {[{ adult.information.lastName }]}
                                     <a href="#" ng-click="editAdult(adult)">Edit</a>
                                 </div>
-                                <div class="nameArea">
+                                <div class="">
+                                    <div class="incomefirstnamefield namefield">
+                                    <label for="firstName">First Name</label><br>
                                     <input type="text" name="firstName" placeholder="First name" ng-model="currentAdult.information.firstName" />
+                                    </div>
+                                    <div class="incomelastnamefield namefield">
+                                    <label for="lastName">Last Name</label><br>                                    
                                     <input type="text" name="lastName" placeholder="Last name" ng-model="currentAdult.information.lastName" />
+                                    </div>
                                 </div>
                             </section>
                             <div class="sourcesArea">
                                 <section name="sources">
-                                        <i class="fa fa-minus-circle"></i>
-                                            <a href="#" ng-click="clearCurrentAdult()">Remove</a>
+                                    <div class="minusSourceLink">
+                                            <a href="#" ng-click="clearCurrentAdult()"><i class="fa fa-minus-circle"></i> Cancel</a>
+                                    </div>
                                         <div class="sourceDropdown">
                                         <div class="" ng-repeat="incomeSource in currentAdult.incomeSources">
                                             From {[{ incomeSource.source.name }]}... {[{ incomeSource.amount | currency }]}
                                         </div>
 
-                                        <div class="">
                                             <select name="incomeSource" id="incomeSource" ng-options="source.name for source in incomeSources track by source.id" ng-model="currentAdult.information.income.source"></select>
                                         </div>
-                                        </div>
-                                            <input type="number" name="income" id="income" ng-model="currentAdult.information.income.amount" placeholder="$ (Amount)" />
+                                        <div class="amountField">
+                                            <input type="number" name="income" id="income" ng-model="currentAdult.information.income.amount" placeholder="$(00.00)" />
                                             <input type="radio" name="frequency" />
-
-                                        <div clas="">
-                                        <div class="">
-                                            <i class="fa fa-plus-circle"></i>
-                                            <a href="#" ng-click="saveIncomeSource()">Add</a>
                                         </div>
-                            </div>
+                                    <div class="plusSourceLink">
+                                            <a href="#" ng-click="saveIncomeSource()"><i class="fa fa-plus-circle"></i> Add</a>
+                                        </div>
                                 </section>
                             </div>
-                            <button ng-click="addWorkingAdult()" class="tertiarybutton">+ Add person</button>
+                            <button ng-click="addWorkingAdult()" class="tertiarybutton addPersonButton">+ Add person</button>
                         </section>
-
+                        <div class="buttongroup">
                         <button ng-click="changeSection(5)" class="secondarybutton">Previous</button>
                         <button ng-click="changeSection(7)" class="primarybutton floatright">Next</button>
+                        </div>
                     </div>
                 </div>
                 <div class="step-7" ng-show="currentStep === 7">
@@ -234,8 +278,10 @@
                         <h2>What are the last four digits of the Social Security Number of the primary wage earner or other adult household member?</h2><br>
 
                         XXX-XX-<input type="text" name="ssn"><br><br>
-
-                        <input type="checkbox" name="no_ssn" value="NULL" checked> No SSN<br>
+                        <div class="radio">
+                        <input type="checkbox" name="no_ssn" value="NULL" checked>
+                        <label for="no_ssn">No SSN</label>
+                        </div>
                         <div class="buttongroup">
                             <button ng-click="changeSection(6)" class="secondarybutton">Previous</button>
                             <button ng-click="changeSection(8)" class="primarybutton floatright">Next</button>
@@ -245,47 +291,46 @@
                 <div class="step-8" ng-show="currentStep === 8">
                     <h2>What is your contact information?</h2>
 
-                    <div class="notification"><i class="fa fa-info"></i> If you are homeless, you can add a previous, family or friend's, or your shelter's address.</div>
-
-                    <div class="streetaddressfield addressfield">
-                    Street Address<br>
-                    <input type="text" name="street_address" placeholder="Street Address">
-                    </div>
-                    <div class="aptfield addressfield">
-                    Apt. #<br>
-                    <input type="text" name="apt_num" placeholder="Apt. #"><br>
-                    </div>
-                    <div class="cityfield addressfield">
-                    City<br>
-                    <input type="text" name="city" placeholder="City"><br>
-                    </div>
-                    <div class="statefield addressfield">
-                    State<br>
-                    <input type="text" name="state" placeholder="State"><br>
-                    </div>
-                    <div class="zipcodefield addressfield">
-                    Zip Code<br>
-                    <input type="text" name="zip_code" placeholder="Zip Code"><br>
-                    </div>
-                    <div class="emailfield addressfield">
-                    Email Address<br>
-                    <input type="text" name="email" placeholder="Email Address"><br>
-                    </div>
-                    <div class="phonenumberfield addressfield">
-                    Phone Number<br>
-                    <input type="text" name="phone" placeholder="Phone Number"><br>
-                    </div>
+                    <div class="notification"><img src="../icons/Apple.png" class="appleIcon"> <p>If you are homeless, you can add a previous, family or friend's, or your shelter's address.</p></div>
                     <div class="firstnamefield addressfield">
-                    Your First Name<br>
+                     <label for="firstname">Your First Name</label>                    
                     <input type="text" name="firstname" placeholder="Your First Name"><br>
                     </div>
                     <div class="middleinitialfield addressfield">
-                    MI<br>                    
+                    <label for="middleInitial">MI</label>        
                     <input type="text" name="middleinitial" placeholder="MI"><br>
                     </div>
                     <div class="lastnamefield addressfield">
-                    Last Name<br>
+                    <label for="lastname">Last Name</label>
                     <input type="text" name="lastname" placeholder="Last Name"><br>
+                    </div>
+                    <div class="streetaddressfield addressfield">
+                    <label for="street_address">Street Address</label>
+                    <input type="text" name="street_address" placeholder="Street Address">
+                    </div>
+                    <div class="aptfield addressfield">
+                    <label for="apt_num">Apt. #</label>                    
+                    <input type="text" name="apt_num" placeholder="Apt. #"><br>
+                    </div>
+                    <div class="cityfield addressfield">
+                    <label for="city">City</label>                    
+                    <input type="text" name="city" placeholder="City"><br>
+                    </div>
+                    <div class="statefield addressfield">
+                    <label for="state">State</label>                    
+                    <input type="text" name="state" placeholder="State"><br>
+                    </div>
+                    <div class="zipcodefield addressfield">
+                    <label for="zip_code">Zip Code</label>                    
+                    <input type="text" name="zip_code" placeholder="Zip Code"><br>
+                    </div>
+                    <div class="emailfield addressfield">
+                    <label for="email">Email Address</label>                    
+                    <input type="text" name="email" placeholder="Email Address"><br>
+                    </div>
+                    <div class="phonenumberfield addressfield">
+                    <label for="phone">Phone Number</label>                    
+                    <input type="text" name="phone" placeholder="Phone Number"><br>
                     </div>
                     <br><br>
                     <div class="initialsfield addressfield">
