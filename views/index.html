@@ -7,8 +7,9 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
-  <body>
-    <div class="content" ng-controller="FormController as formController">
+  <body ng-controller="FormController as formController"
+        ng-class="{landingPage: isInitialPage()}">
+    <div class="content">
         <div class="landing" ng-show="currentStep === 0" ng-model="selectedLanguage">
             <h1>Welcome to the National Lunch Program</h1>
             <div class="center">
@@ -178,41 +179,46 @@
                     <div>
                         <h2>Does your child earn income?</h2>
                         <div class="radio">
-                        <input type="radio" name="childIncome" value="1" />
-                        <label for="childIncome">Yes</label>
+                            <input type="radio" name="childIncome" value="1" />
+                            <label for="childIncome">Yes</label>
                         </div>
                         <div class="radio">
-                        <input type="radio" name="childIncome" value="0" />
-                        <label for="childIncome">No</label>
+                            <input type="radio" name="childIncome" value="0" />
+                            <label for="childIncome">No</label>
                         </div>
-                    <div class="notification"><img src="../icons/Apple.png" class="appleIcon"> <p>Please include the total income earned by all child household members.</p></div>
-                        <label for="childAmount">Child Income</label><br>                        
+                    <div class="notification">
+                        <img src="../icons/Apple.png" class="appleIcon">
+                        <p>
+                            Please include the total income earned by all child household members.
+                        </p>
+                    </div>
+                        <label for="childAmount">Child Income</label><br>
                         <input type="number" placeholder="$(00.00)" name="childAmount" /></div>
 
                         <p>Frequency</p>
                         <div class="radio">
-                        <input type="radio" name="childIncome" value="1" />
-                        <label for="childIncome">Hourly</label>
+                            <input type="radio" name="childIncome" value="1" />
+                            <label for="childIncome">Hourly</label>
                         </div>
-                        <div class="radio">                        
-                        <input type="radio" name="childIncome" value="2" />
-                        <label for="childIncome">Weekly</label>                        
-                         </div>
-                        <div class="radio">                   
-                        <input type="radio" name="childIncome" value="3" />
-                        <label for="childIncome">Bi-Weekly</label>                        
+                        <div class="radio">
+                            <input type="radio" name="childIncome" value="2" />
+                            <label for="childIncome">Weekly</label>
                         </div>
-                        <div class="radio">                       
-                        <input type="radio" name="childIncome" value="4" />
-                        <label for="childIncome">Monthly</label>                        
+                        <div class="radio">
+                            <input type="radio" name="childIncome" value="3" />
+                            <label for="childIncome">Bi-Weekly</label>
                         </div>
-                        <div class="radio">                        
-                        <input type="radio" name="childIncome" value="5" />
-                        <label for="childIncome">Bi-Monthly</label>                        
+                        <div class="radio">
+                            <input type="radio" name="childIncome" value="4" />
+                            <label for="childIncome">Monthly</label>
                         </div>
-                        <div class="radio">                         
-                        <input type="radio" name="childIncome" value="6" />
-                        <label for="childIncome">Annual</label>                        
+                        <div class="radio">
+                            <input type="radio" name="childIncome" value="5" />
+                            <label for="childIncome">Bi-Monthly</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="childIncome" value="6" />
+                            <label for="childIncome">Annual</label>
                         </div>
                         <div class="buttongroup">
                             <button ng-click="changeSection(4)" class="secondarybutton">Previous</button>
@@ -223,7 +229,7 @@
                 <div class="step-6" ng-show="currentStep === 6">
                     <div>
                         <h2>What is your income information?</h2>
-                        <div class="notification"><img src="../icons/Apple.png" class="appleIcon"> 
+                        <div class="notification"><img src="../icons/Apple.png" class="appleIcon">
                             <p>List each non-child, those who were not listed in Step 2, even if they did not make money. If they have multiple sources of income, please add each source.</p>
                         </div>
 

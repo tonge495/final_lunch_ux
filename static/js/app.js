@@ -10,6 +10,10 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
      * Defaults
      */
 
+    $scope.isInitialPage = function() {
+        return currentStep <= 0;
+    };
+
     // which language the user should use (default: '')
     // TODO please change this back to null or ''
     var selectedLanguage = 'english';
