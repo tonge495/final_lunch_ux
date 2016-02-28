@@ -16,8 +16,14 @@ body {
     width: 30%;
 }
 
-.sourcesArea {
-}
+.landingPage {
+    background: url(../../icons/intro-background.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
 
 /* Typography */
 h1, h2, h3, button {
