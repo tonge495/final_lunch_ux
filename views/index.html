@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../static/css/styles.css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="content" ng-controller="FormController as formController">
@@ -64,11 +64,11 @@
                             <label for="firstName">First name</label>
                             <input type="text" name="firstName" id="firstName" placeholder="First Name" />
                             </div>
-                            <div class="middleinitialfield childfield">                            
+                            <div class="middleinitialfield childfield">
                             <label for="middleInitial">MI</label>
                             <input type="text" name="middleInitial" id="middleInitial"  placeholder="MI"/>
                             </div>
-                            <div class="lastnamefield childfield">                            
+                            <div class="lastnamefield childfield">
                             <label for="lastName">Last Name</label>
                             <input type="text" name="lastName" id="lastname" placeholder="Last Name" />
                             </div>
@@ -98,7 +98,7 @@
                             </div>
                         </div>
                             <button class="tertiarybutton" ng-click="addChild()">+Child</button>
-                        <div class="buttongroup">                            
+                        <div class="buttongroup">
                             <button ng-click="changeSection(1)" class="secondarybutton">Previous</button>
                             <button ng-click="changeSection(3)" class="floatright primarybutton">Next</button>
                         </div>
@@ -140,15 +140,15 @@
                         <div class="alternative" ng-show="hasProgram()">
                             <h3>Do you know your case number?</h3>
                             <div class="radio">
-                            <input type="radio" name="hasCase" value=true
-                            id="hasCase" ng-model="program.hasCaseNumber">
-                            <label for="hasCase">Yes</label>
+                                <input type="radio" name="hasCase" value=true
+                                id="hasCase" ng-model="program.hasCaseNumber">
+                                <label for="hasCase">Yes</label>
                             </div>
                             <div class="radio">
-                            <input type="radio" name="noCase" value=false
-                            id="noCase" ng-model="program.hasCaseNumber">
-                            <label for="noCase">No</label>
-                            </div>                            
+                                <input type="radio" name="noCase" value=false
+                                id="noCase" ng-model="program.hasCaseNumber">
+                                <label for="noCase">No</label>
+                            </div>
                             <div ng-show="hasCaseNumber()" class="casenumberfield">
                                 <label class="small" for="caseNumber">
                                     Case Number

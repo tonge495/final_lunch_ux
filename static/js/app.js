@@ -223,7 +223,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
     $scope.addChild = function() {
         var child = $scope.currentChild;
 
-        if (!isExistingChild(child)) {
+        if (child && !isExistingChild(child)) {
             child.id = $scope.children.length + 1;
             $scope.children.push(child);
             $scope.clearCurrentChild();
