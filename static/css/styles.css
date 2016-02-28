@@ -56,7 +56,12 @@ button {
 
 .buttongroup {
 	padding:20px 0;
-	clear:left;
+	clear:both;
+}
+
+.addPersonButton {
+  float:right;
+  clear:both;
 }
 
 .primarybutton {
@@ -100,7 +105,24 @@ button {
 	font-size:16px;
 }
 
-/* fields */
+.secondarybutton {
+    float: left;
+    clear: left;
+}
+
+/* Government Program fields */
+.casenumberfield {
+    clear: left;
+    width: 20%;
+    margin-top: 15px;
+}
+
+/* Child Income fields */
+.step-5 .notification {
+    margin: 15px 0;
+}
+
+/* Income Info fields */
 
 input#middleInitial {
     width: 50px;
@@ -110,7 +132,7 @@ input[type="text"], input[type="number"] {
     background-color: transparent;
     border-style: none;
     color: black;
-    padding: 5px 10px;
+    padding: 5px 10px 5px 0px;
    	border-bottom: 3px solid #333333;
 }
 
@@ -124,6 +146,86 @@ input[type="text"]:focus, input[type="number"]:focus {
 
 textarea, input {
 	outline: none;
+}
+
+input::-webkit-input-placeholder {
+    color: 333333;
+    opacity: 0.25;
+}
+
+
+.amountField, .sourceDropdown, .plusSourceLink, .minusSourceLink {
+    float: left;
+}
+
+.amountField, .sourceDropdown {
+    width: 38.5%;
+}
+
+select#incomeSource, .amountField input[type="number"] {
+    width: 100%;
+}
+
+.plusSourceLink, .minusSourceLink {
+    width: 10%;
+}
+
+.minusSourceLink, .sourceDropdown, .amountField {
+  margin-right: 1%;
+}
+
+.sourceDropdown, .amountField {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.plusSourceLink, .minusSourceLink {
+    margin-top: 19px;
+    margin-bottom: 10px;
+}
+
+i.fa.fa-minus-circle, i.fa.fa-plus-circle {
+    font-size:25px;
+}
+
+/* Name Fields */
+.namefield {
+  float:left;
+  margin: 10px 0;
+}
+
+.namefield input[type="text"] {
+  width:100%;
+}
+
+.incomefirstnamefield, .incomelastnamefield {
+  width:49.5%;
+}
+
+.incomefirstnamefield {
+  margin-right: 1%;
+}
+
+/* Child Info Fields */
+.childfield {
+  float:left;
+  margin: 10px 0;
+}
+
+.childfield input[type="text"] {
+  width:100%;
+}
+
+.firstnamefield {
+  width:46%;
+}
+
+.middleinitialfield {
+  width: 6%;
+}
+
+.lastnamefield {
+  width: 46%;
 }
 
 /* Address fields */
@@ -200,15 +302,10 @@ textarea, input {
     margin: 15px 20px 15px 0;
 }
 
-.sourcesArea, .nameArea {
-    margin: auto;
-    width: 60%;
-}
 
 /* Source dropdown */
 .sourceDropdown select {
    background: transparent;
-   width: 190px;
    padding: 5px;
    font-size: 16px;
    line-height: 1;
@@ -221,10 +318,98 @@ textarea, input {
    }
 
 .sourceDropdown:after {
-    overflow: hidden;
-    content: "\F078";
-    font-family: FontAwesome;
+}
+
+/* Images and Icons */
+.appleIcon {
+  width: 25px;
+  height:auto;
+  display: inline;
+  vertical-align: middle;
+  margin-right: 5px; 
+  float:left; 
+}
+
+/* Notifications */
+.notification p {
+    display: inline;
+    line-height: 1.4em;
+    font-weight: 400;
+    color: #996533;
+}
+
+/* Checkboxes and Radio Buttons */
+input[type=radio], input[type=checkbox] {
+    display: none;
+}
+
+.checkbox label {
+    display: inline-block;
+    cursor: pointer;
     position: relative;
-    left: 35%;
-    bottom: 25px;
+    padding-left: 25px;
+    margin-right: 15px;
+    font-size: 13px;
+}
+
+
+.checkbox label:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    border: 1px solid #DBDBDB;
+    background-color: white;
+    border-radius: 5px;
+}
+
+input[type=checkbox]:checked + label:before {
+    content: "\F00C";
+    font-family: FontAwesome;
+    color: #333333;
+    font-size: 16px;
+    text-align: center;
+    line-height: 18px;
+}
+
+.radio label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 15px;
+    font-size: 13px;
+}
+
+
+.radio label:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    border: 1px solid #DBDBDB;
+    background-color: white;
+    border-radius: 50px;
+}
+
+input[type=radio]:checked + label:before {
+    content: "\2022";
+    color: #333333;
+    font-size: 40px;
+    text-align: center;
+    line-height: 15px;
+}
+
+.radio {
+    display: inline-block;
+}
+
+.childType {
+    margin-bottom: 15px;
 }
