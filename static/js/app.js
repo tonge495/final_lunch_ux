@@ -11,7 +11,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
      */
 
     $scope.isInitialPage = function() {
-        return currentStep <= 0;
+        return $scope.currentStep <= 0;
     };
 
     // which language the user should use (default: '')
@@ -42,7 +42,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
 
     // dictates which step we're in. This can be defaulted to a certain step
     // for debugging.
-    var currentStep = 2;
+    var currentStep = 5;
 
     /**
      * Returns an object containing income information. This is useful for
@@ -162,12 +162,23 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
      * @param {Object} adult - the selected adult
      */
     $scope.editAdult = function(adult) {
+        if ($scope.removeAdult()) {
+            $scope.currentAdult = adult;
+            return true;
+        }
+
+        return false;
+    };
+
+    $scope.removeAdult = function(adult) {
         var indexOfAdult = $scope.workingAdults.indexOf(adult);
 
         if (indexOfAdult !== -1) {
             $scope.workingAdults.splice(indexOfAdult, 1);
-            $scope.currentAdult = adult;
+            return true;
         }
+
+        return false;
     };
 
 

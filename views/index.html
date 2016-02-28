@@ -58,43 +58,65 @@
                     </div>
                 </div>
                 <div class="step-2" ng-show="currentStep === 2">
+                    <section class="childrenSummary">
+                        <div ng-repeat="child in children">
+                            {[{ child.firstName }]} {[{ child.lastName }]}
+                            <a href="#" ng-click="editChild(child)">Edit</a>
+                            <a href="#" ng-click="removeChild(child)">Remove</a>
+                        </div>
+                    </section>
                     <h2>What is your child's information?</h2>
                     <div>
                         <div class="childName">
                             <div class="firstnamefield childfield">
-                            <label for="firstName">First name</label>
-                            <input type="text" name="firstName" id="firstName" placeholder="First Name" />
+                                <label for="firstName">First name</label>
+                                <input type="text" name="firstName"
+                                id="firstName" placeholder="First Name"
+                                ng-model="currentChild.firstName"/>
                             </div>
                             <div class="middleinitialfield childfield">
-                            <label for="middleInitial">MI</label>
-                            <input type="text" name="middleInitial" id="middleInitial"  placeholder="MI"/>
+                                <label for="middleInitial">MI</label>
+                                <input type="text" name="middleInitial"
+                                id="middleInitial"  placeholder="MI"
+                                ng-model="currentChild.middleInitial"/>
                             </div>
                             <div class="lastnamefield childfield">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" name="lastName" id="lastname" placeholder="Last Name" />
+                                <label for="lastName">Last Name</label>
+                                <input type="text" name="lastName" id="lastname"
+                                placeholder="Last Name"
+                                ng-model="currentChild.lastName" />
                             </div>
                         </div>
 
                         <div class="childType">
                             <p>Check all that apply:</p>
                             <div class="studentIcon checkbox">
-                                <input type="checkbox" name="student" id="student" />
+                                <input type="checkbox" name="student"
+                                id="student"
+                                ng-model="currentChild.statuses.student" />
                                 <label for="student">Student</label>
                             </div>
                             <div class="fosterIcon checkbox">
-                                <input type="checkbox" name="foster" id="foster" />
+                                <input type="checkbox" name="foster" id="foster"
+                                ng-model="currentChild.statuses.foster" />
                                 <label for="foster">Foster</label>
                             </div>
                             <div class="studentIcon checkbox">
-                                <input type="checkbox" name="migrant" id="migrant" />
+                                <input type="checkbox" name="migrant"
+                                id="migrant"
+                                ng-model="currentChild.statuses.migrant" />
                                 <label for="migrant">Migrant</label>
                             </div>
                             <div class="studentIcon checkbox">
-                                <input type="checkbox" name="homeless" id="homeless" />
+                                <input type="checkbox" name="homeless"
+                                id="homeless"
+                                ng-model="currentChild.statuses.homeless" />
                                 <label for="homeless">Homeless</label>
                             </div>
                             <div class="studentIcon checkbox">
-                                <input type="checkbox" name="runaway" id="runaway" />
+                                <input type="checkbox" name="runaway"
+                                id="runaway"
+                                ng-model"currentChild.statuses.runaway" />
                                 <label for="runaway">Runaway</label>
                             </div>
                         </div>
@@ -168,7 +190,8 @@
                     <div>
                         <h2>How many people are in your household?</h2>
                         <label for="householdNumber">Number of People</label><br>
-                        <input type="number" placeholder="(0)" name="householdNumber" />
+                        <input type="number" placeholder="(0)"
+                        name="householdNumber" ng-model="householdSize" />
                         <div class="buttongroup">
                             <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
                             <button ng-click="changeSection(5)" class="primarybutton floatright">Next</button>
@@ -177,49 +200,67 @@
                 </div>
                 <div class="step-5" ng-show="currentStep === 5">
                     <div>
-                        <h2>Does your child earn income?</h2>
+                        <h2>Do your children earn income?</h2>
                         <div class="radio">
-                            <input type="radio" name="childIncome" value="1" />
-                            <label for="childIncome">Yes</label>
+                            <input type="radio" ng-model="childrenDetails.haveIncome"
+                            name="childIncome" id="hasChildIncome" value="1" />
+                            <label for="hasChildIncome">Yes</label>
                         </div>
                         <div class="radio">
-                            <input type="radio" name="childIncome" value="0" />
-                            <label for="childIncome">No</label>
+                            <input type="radio" ng-model="childrenDetails.haveIncome"
+                            name="childIncome" id="noChildIncome" value="0" />
+                            <label for="noChildIncome">No</label>
                         </div>
-                    <div class="notification">
-                        <img src="../icons/Apple.png" class="appleIcon">
-                        <p>
-                            Please include the total income earned by all child household members.
-                        </p>
-                    </div>
-                        <label for="childAmount">Child Income</label><br>
-                        <input type="number" placeholder="$(00.00)" name="childAmount" /></div>
 
-                        <p>Frequency</p>
-                        <div class="radio">
-                            <input type="radio" name="childIncome" value="1" />
-                            <label for="childIncome">Hourly</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="childIncome" value="2" />
-                            <label for="childIncome">Weekly</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="childIncome" value="3" />
-                            <label for="childIncome">Bi-Weekly</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="childIncome" value="4" />
-                            <label for="childIncome">Monthly</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="childIncome" value="5" />
-                            <label for="childIncome">Bi-Monthly</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="childIncome" value="6" />
-                            <label for="childIncome">Annual</label>
-                        </div>
+                        <section ng-show="childrenDetails.haveIncome == 1">
+                            <div class="notification">
+                                <img src="../icons/Apple.png" class="appleIcon">
+                                <p>
+                                    Please include the total income earned by all child household members.
+                                </p>
+                            </div>
+                            <label for="childAmount">Income for all children</label>
+                            <input type="number" placeholder="$(00.00)"
+                            name="childAmount" ng-model="childrenDetails.amount"/>
+
+                            <p>Frequency</p>
+                            <div class="radio">
+                                <input type="radio" name="childIncome"
+                                id="hourlyChildIncome" value="1"
+                                ng-model="childrenDetails.frequency" />
+                                <label for="hourlyChildIncome">Hourly</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="childIncome"
+                                id="weeklyChildIncome" value="2"
+                                ng-model="childrenDetails.frequency" />
+                                <label for="weeklyChildIncome">Weekly</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="childIncome"
+                                id="biweeklyChildIncome" value="3"
+                                ng-model="childrenDetails.frequency" />
+                                <label for="biweeklyChildIncome">Bi-Weekly</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="childIncome"
+                                id="monthlyChildIncome" value="4"
+                                ng-model="childrenDetails.frequency" />
+                                <label for="monthlyChildIncome">Monthly</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="childIncome"
+                                id="bimonthlyChildIncome" value="5"
+                                ng-model="childrenDetails.frequency" />
+                                <label for="bimonthlyChildIncome">Bi-Monthly</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="childIncome"
+                                id="annualChildIncome" value="6"
+                                ng-model="childrenDetails.frequency" />
+                                <label for="annualChildIncome">Annual</label>
+                            </div>
+                        </section>
                         <div class="buttongroup">
                             <button ng-click="changeSection(4)" class="secondarybutton">Previous</button>
                             <button ng-click="changeSection(6)" class="primarybutton floatright">Next</button>
@@ -238,6 +279,8 @@
                                 <div class="" ng-repeat="adult in workingAdults">
                                     {[{ adult.information.firstName }]} {[{ adult.information.lastName }]}
                                     <a href="#" ng-click="editAdult(adult)">Edit</a>
+                                    <a href="#"
+                                        ng-click="removeAdult(adult)">Remove</a>
                                 </div>
                                 <div class="">
                                     <div class="incomefirstnamefield namefield">
@@ -245,7 +288,7 @@
                                     <input type="text" name="firstName" placeholder="First name" ng-model="currentAdult.information.firstName" />
                                     </div>
                                     <div class="incomelastnamefield namefield">
-                                    <label for="lastName">Last Name</label><br>                                    
+                                    <label for="lastName">Last Name</label><br>
                                     <input type="text" name="lastName" placeholder="Last name" ng-model="currentAdult.information.lastName" />
                                     </div>
                                 </div>
@@ -299,49 +342,49 @@
 
                     <div class="notification"><img src="../icons/Apple.png" class="appleIcon"> <p>If you are homeless, you can add a previous, family or friend's, or your shelter's address.</p></div>
                     <div class="firstnamefield addressfield">
-                     <label for="firstname">Your First Name</label>                    
-                    <input type="text" name="firstname" placeholder="Your First Name"><br>
+                        <label for="firstname">Your First Name</label>
+                        <input type="text" name="firstname" placeholder="Your First Name"><br>
                     </div>
                     <div class="middleinitialfield addressfield">
-                    <label for="middleInitial">MI</label>        
-                    <input type="text" name="middleinitial" placeholder="MI"><br>
+                        <label for="middleInitial">MI</label>
+                        <input type="text" name="middleinitial" placeholder="MI"><br>
                     </div>
                     <div class="lastnamefield addressfield">
-                    <label for="lastname">Last Name</label>
-                    <input type="text" name="lastname" placeholder="Last Name"><br>
+                        <label for="lastname">Last Name</label>
+                        <input type="text" name="lastname" placeholder="Last Name"><br>
                     </div>
                     <div class="streetaddressfield addressfield">
-                    <label for="street_address">Street Address</label>
-                    <input type="text" name="street_address" placeholder="Street Address">
+                        <label for="street_address">Street Address</label>
+                        <input type="text" name="street_address" placeholder="Street Address">
                     </div>
                     <div class="aptfield addressfield">
-                    <label for="apt_num">Apt. #</label>                    
-                    <input type="text" name="apt_num" placeholder="Apt. #"><br>
+                        <label for="apt_num">Apt. #</label>
+                        <input type="text" name="apt_num" placeholder="Apt. #"><br>
                     </div>
                     <div class="cityfield addressfield">
-                    <label for="city">City</label>                    
-                    <input type="text" name="city" placeholder="City"><br>
+                        <label for="city">City</label>
+                        <input type="text" name="city" placeholder="City"><br>
                     </div>
                     <div class="statefield addressfield">
-                    <label for="state">State</label>                    
-                    <input type="text" name="state" placeholder="State"><br>
+                        <label for="state">State</label>
+                        <input type="text" name="state" placeholder="State"><br>
                     </div>
                     <div class="zipcodefield addressfield">
-                    <label for="zip_code">Zip Code</label>                    
-                    <input type="text" name="zip_code" placeholder="Zip Code"><br>
+                        <label for="zip_code">Zip Code</label>
+                        <input type="text" name="zip_code" placeholder="Zip Code"><br>
                     </div>
                     <div class="emailfield addressfield">
-                    <label for="email">Email Address</label>                    
-                    <input type="text" name="email" placeholder="Email Address"><br>
+                        <label for="email">Email Address</label>
+                        <input type="text" name="email" placeholder="Email Address"><br>
                     </div>
                     <div class="phonenumberfield addressfield">
-                    <label for="phone">Phone Number</label>                    
+                    <label for="phone">Phone Number</label>
                     <input type="text" name="phone" placeholder="Phone Number"><br>
                     </div>
                     <br><br>
                     <div class="initialsfield addressfield">
-                    Enter your initials to e-sign<br>
-                    <input type="text" name="initials" placeholder="Initials for E-Sign">
+                        Enter your initials to e-sign<br>
+                        <input type="text" name="initials" placeholder="Initials for E-Sign">
                     </div>
                     <br>
                     <div class="buttongroup">
