@@ -389,8 +389,12 @@
                     <br>
                     <div class="buttongroup">
                         <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
-                        <button class="primarybutton floatright">Submit</button>
+                        <button class="primarybutton floatright"
+                        ng-click="changeSection(9)">Submit</button>
                     </div>
+                </div>
+                <div class="step-9" ng-show="currentStep === 9">
+                    <h2>Hi There</h2>
                 </div>
             </div>
             </div>
