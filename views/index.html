@@ -220,7 +220,7 @@
                     <div>
                         <h2>How many people are in your household?</h2>
                         <label for="householdNumber">Number of People</label><br>
-                        <input type="number" placeholder="(0)"
+                        <input type="number" min="1" placeholder="(0)"
                         name="householdNumber" ng-model="householdSize" />
                         <div class="buttongroup">
                             <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
@@ -326,24 +326,62 @@
                                 </div>
                             </section>
                             <div class="sourcesArea">
+                                <div class="minusSourceLink">
+                                    <a href="#" ng-click="clearCurrentAdult()"><i class="fa fa-minus-circle"></i></a>
+                                </div>
                                 <section name="sources">
                                         <div class="sourceResults" ng-repeat="incomeSource in currentAdult.incomeSources">
                                             Income from {[{ incomeSource.source.name }]}... {[{ incomeSource.amount | currency }]}
                                         </div>
-                                    <div class="minusSourceLink">
-                                            <a href="#" ng-click="clearCurrentAdult()"><i class="fa fa-minus-circle"></i></a>
-                                    </div>
+
                                         <div class="sourceDropdown">
                                             <select name="incomeSource" id="incomeSource" ng-options="source.name for source in incomeSources track by source.id" ng-model="currentAdult.information.income.source"></select>
                                         </div>
                                         <div class="amountField">
                                             <input type="number" name="income" id="income" ng-model="currentAdult.information.income.amount" placeholder="$(00.00)" />
-                                            <input type="radio" name="frequency" />
                                         </div>
-                                    <div class="plusSourceLink">
-                                            <a href="#" ng-click="saveIncomeSource()"><i class="fa fa-plus-circle"></i></a>
+                                        <div class="frequency">
+                                            <div class="radio">
+                                                <input type="radio" name="adultIncome"
+                                                id="hourlyAdultIncome" value="1"
+                                                ng-model="currentAdult.information.income.frequency" />
+                                                <label for="hourlyAdultIncome">Hourly</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" name="adultIncome"
+                                                id="weeklyAdultIncome" value="2"
+                                                ng-model="currentAdult.information.income.frequency" />
+                                                <label for="weeklyAdultIncome">Weekly</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" name="adultIncome"
+                                                id="biweeklyAdultIncome" value="3"
+                                                ng-model="currentAdult.information.income.frequency" />
+                                                <label for="biweeklyAdultIncome">Bi-Weekly</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" name="adultIncome"
+                                                id="monthlyAdultIncome" value="4"
+                                                ng-model="currentAdult.information.income.frequency" />
+                                                <label for="monthlyAdultIncome">Monthly</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" name="adultIncome"
+                                                id="bimonthlyAdultIncome" value="5"
+                                                ng-model="currentAdult.information.income.frequency" />
+                                                <label for="bimonthlyAdultIncome">Bi-Monthly</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" name="adultIncome"
+                                                id="annualAdultIncome" value="6"
+                                                ng-model="currentAdult.information.income.frequency" />
+                                                <label for="annualAdultIncome">Annual</label>
+                                            </div>
                                         </div>
                                 </section>
+                                <div class="plusSourceLink">
+                                    <a href="#" ng-click="saveIncomeSource()"><i class="fa fa-plus-circle"></i></a>
+                                </div>
                             </div>
                             <button ng-click="addWorkingAdult()" class="tertiarybutton addPersonButton">+ Add person</button>
                         </section>

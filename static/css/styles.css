@@ -236,6 +236,16 @@ select#incomeSource, .amountField input[type="number"] {
 .plusSourceLink, .minusSourceLink {
     margin-top: 19px;
     margin-bottom: 10px;
+    width: 10%;
+}
+
+section[name=sources] {
+    width: 79%;
+    float: left;
+}
+
+.frequency {
+    float: left;
 }
 
 .sourcesArea i.fa.fa-minus-circle, .sourcesArea i.fa.fa-plus-circle {
