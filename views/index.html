@@ -82,14 +82,14 @@
                     </div>
                 </div>
                 <div class="step-2" ng-show="currentStep === 2">
-                    <section class="childrenSummary">
-                        <div ng-repeat="child in children">
-                            {[{ child.firstName }]} {[{ child.lastName }]}
-                            <a href="#" ng-click="editChild(child)">Edit</a>
-                            <a href="#" ng-click="removeChild(child)">Remove</a>
-                        </div>
-                    </section>
                     <h2>What is your child's information?</h2>
+                    <section class="childrenSummary">
+                        <div ng-repeat="child in children" class="childResults" >
+                            {[{ child.firstName }]} {[{ child.lastName }]}
+                            <a href="#" ng-click="editChild(child)"><i class="fa fa-pencil-square-o"></i></a>
+                            <a href="#" ng-click="removeChild(child)"><i class="fa fa-minus-circle"></i></a>
+                        </div>
+                    </section>                    
                     <div>
                         <div class="childName">
                             <div class="firstnamefield childfield">
@@ -111,9 +111,8 @@
                                 ng-model="currentChild.lastName" />
                             </div>
                         </div>
-
+                            <p class="checkChildType">Check all that apply:</p>
                         <div class="childType">
-                            <p>Check all that apply:</p>
                             <div class="studentIcon checkbox">
                                 <img src="../icons/student.png" class="student">
                                 <input type="checkbox" name="student"
@@ -149,7 +148,7 @@
                                 <label for="runaway">Runaway</label>
                             </div>
                         </div>
-                            <button class="tertiarybutton" ng-click="addChild()">+Child</button>
+                            <button class="tertiarybutton childButton" ng-click="addChild()">+ Child</button>
                         <div class="buttongroup">
                             <button ng-click="changeSection(1)" class="secondarybutton">Previous</button>
                             <button ng-click="changeSection(3)" class="floatright primarybutton">Next</button>
@@ -254,10 +253,11 @@
                                     Please include the total income earned by all child household members.
                                 </p>
                             </div>
-                            <label for="childAmount">Income for all children</label>
+                            <div class="childAmount">
+                            <label for="childAmount">Total Child Income</label><br>
                             <input type="number" placeholder="$(00.00)"
                             name="childAmount" ng-model="childrenDetails.amount"/>
-
+                            </div>
                             <p>Frequency</p>
                             <div class="radio">
                                 <img src="../icons/income-icons/hourly.png" class="hourly">
@@ -317,8 +317,8 @@
 
                         <section name="incomeContainer">
                             <section name="adults">
-                                <div class="adultResults">
-                                <div ng-repeat="adult in workingAdults" class="adultName">
+                                <div class="adultResultsSection">
+                                <div class="adultResults" ng-repeat="adult in workingAdults">
                                     {[{ adult.information.firstName }]} {[{ adult.information.lastName }]}
                                     <a href="#" ng-click="editAdult(adult)"><i class="fa fa-pencil-square-o"></i></a>
                                     <a href="#"
@@ -337,14 +337,13 @@
                                 </div>
                             </section>
                             <div class="sourcesArea">
+                                <div class="sourceResults" ng-repeat="incomeSource in currentAdult.incomeSources">
+                                    Income from {[{ incomeSource.source.name }]}... {[{ incomeSource.amount | currency }]}
+                                </div>
                                 <div class="minusSourceLink">
                                     <a href="#" ng-click="clearCurrentAdult()"><i class="fa fa-minus-circle"></i></a>
                                 </div>
                                 <section name="sources">
-                                        <div class="sourceResults" ng-repeat="incomeSource in currentAdult.incomeSources">
-                                            Income from {[{ incomeSource.source.name }]}... {[{ incomeSource.amount | currency }]}
-                                        </div>
-
                                         <div class="sourceDropdown">
                                             <select name="incomeSource" id="incomeSource" ng-options="source.name for source in incomeSources track by source.id" ng-model="currentAdult.information.income.source"></select>
                                         </div>
