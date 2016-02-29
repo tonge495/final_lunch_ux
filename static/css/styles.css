@@ -238,8 +238,16 @@ select#incomeSource, .amountField input[type="number"] {
     margin-bottom: 10px;
 }
 
-i.fa.fa-minus-circle, i.fa.fa-plus-circle {
+.sourcesArea i.fa.fa-minus-circle, .sourcesArea i.fa.fa-plus-circle {
     font-size:25px;
+}
+
+.sourcesArea i.fa.fa-minus-circle {
+    float: right;
+}
+
+.sourceResults {
+    margin-left: 87px;
 }
 
 /* Name Fields */
@@ -466,6 +474,15 @@ input[type=radio]:checked + label:before {
 
 .childType {
     margin-bottom: 15px;
+}
+
+/* Links */
+a {
+    color: #336799;
+}
+
+a:hover {
+    color: white;
 }
 
 /* Final Page */
