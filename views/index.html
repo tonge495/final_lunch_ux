@@ -187,12 +187,12 @@
                         <div class="alternative" ng-show="hasProgram()">
                             <h3>Do you know your case number?</h3>
                             <div class="radio">
-                                <input type="radio" name="hasCase" value=true
+                                <input type="radio" name="hasCase" value="true"
                                 id="hasCase" ng-model="program.hasCaseNumber">
                                 <label for="hasCase">Yes</label>
                             </div>
                             <div class="radio">
-                                <input type="radio" name="noCase" value=false
+                                <input type="radio" name="noCase" value="false"
                                 id="noCase" ng-model="program.hasCaseNumber">
                                 <label for="noCase">No</label>
                             </div>
@@ -201,6 +201,12 @@
                                     Case Number
                                 </label>
                                 <input type="text" name="caseNumber" id="caseNumber" ng-model="program.caseNumber" placeholder="Case Number" />
+                            </div>
+                            <div ng-show="program.hasCaseNumber == 'false'" class="small">
+                                <p>
+                                    Please contact xxx-xxx-xxxx to receive your case
+                                    number.
+                                </p>
                             </div>
                         </div>
 
@@ -323,10 +329,10 @@
                                 <section name="sources">
                                         <div class="sourceResults" ng-repeat="incomeSource in currentAdult.incomeSources">
                                             Income from {[{ incomeSource.source.name }]}... {[{ incomeSource.amount | currency }]}
-                                        </div>                                   
+                                        </div>
                                     <div class="minusSourceLink">
                                             <a href="#" ng-click="clearCurrentAdult()"><i class="fa fa-minus-circle"></i></a>
-                                    </div>                                 
+                                    </div>
                                         <div class="sourceDropdown">
                                             <select name="incomeSource" id="incomeSource" ng-options="source.name for source in incomeSources track by source.id" ng-model="currentAdult.information.income.source"></select>
                                         </div>
