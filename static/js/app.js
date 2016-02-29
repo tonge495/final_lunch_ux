@@ -297,8 +297,15 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
         var defer = $q.defer();
 
         // Leaving this for testing
-        $http.post('/submit', {
-            email: $scope.user.email
+        $http({
+            method: 'POST',
+            url: '/submit',
+            data: JSON.stringify({
+                email: $scope.user.email
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }).then(function(response) {
             console.log(response);
         });
