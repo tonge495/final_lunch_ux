@@ -1,4 +1,6 @@
 from bottle import request, route, run, template, static_file, default_app
+import json
+
 # NOTE:
 # Bottle is weird about templates. By default, it expects them to be in a
 # directory adjacent to this file called `views`.
@@ -12,12 +14,20 @@ def index():
     '''
     return template('index')
 
-@route('/submit')
+@route('/submit', method='POST')
 def submit():
-    pass
-    # Do yo monog stuff
-    if request.GET.get():
-        pass
+    result = None
+
+    # this only does it once
+    for key in request.POST.keys():
+        if not result:
+            result = key
+            break
+
+    data = json.loads(result)
+    # data is a dictionary of parameters
+
+    return template('index')
 
 @route('/static/<filename:path>', name='static')
 def server_static(filename):
