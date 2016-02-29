@@ -351,48 +351,54 @@
                                         <div class="amountField">
                                             <input type="number" name="income" id="income" ng-model="currentAdult.information.income.amount" placeholder="$(00.00)" />
                                         </div>
-                                        <div class="frequency">
-                                            <div class="radio">
-                                                <input type="radio" name="adultIncome"
-                                                id="hourlyAdultIncome" value="1"
-                                                ng-model="currentAdult.information.income.frequency" />
-                                                <label for="hourlyAdultIncome">Hourly</label>
-                                            </div>
-                                            <div class="radio">
-                                                <input type="radio" name="adultIncome"
-                                                id="weeklyAdultIncome" value="2"
-                                                ng-model="currentAdult.information.income.frequency" />
-                                                <label for="weeklyAdultIncome">Weekly</label>
-                                            </div>
-                                            <div class="radio">
-                                                <input type="radio" name="adultIncome"
-                                                id="biweeklyAdultIncome" value="3"
-                                                ng-model="currentAdult.information.income.frequency" />
-                                                <label for="biweeklyAdultIncome">Bi-Weekly</label>
-                                            </div>
-                                            <div class="radio">
-                                                <input type="radio" name="adultIncome"
-                                                id="monthlyAdultIncome" value="4"
-                                                ng-model="currentAdult.information.income.frequency" />
-                                                <label for="monthlyAdultIncome">Monthly</label>
-                                            </div>
-                                            <div class="radio">
-                                                <input type="radio" name="adultIncome"
-                                                id="bimonthlyAdultIncome" value="5"
-                                                ng-model="currentAdult.information.income.frequency" />
-                                                <label for="bimonthlyAdultIncome">Bi-Monthly</label>
-                                            </div>
-                                            <div class="radio">
-                                                <input type="radio" name="adultIncome"
-                                                id="annualAdultIncome" value="6"
-                                                ng-model="currentAdult.information.income.frequency" />
-                                                <label for="annualAdultIncome">Annual</label>
-                                            </div>
-                                        </div>
                                 </section>
                                 <div class="plusSourceLink">
                                     <a href="#" ng-click="saveIncomeSource()"><i class="fa fa-plus-circle"></i></a>
                                 </div>
+                                    <div class="frequency">
+                                        <div class="radio">
+                                            <img src="../icons/income-icons/hourly.png" class="hourly">
+                                            <input type="radio" name="adultIncome"
+                                            id="hourlyAdultIncome" value="1"
+                                            ng-model="currentAdult.information.income.frequency" />
+                                            <label for="hourlyAdultIncome">Hourly</label>
+                                        </div>
+                                        <div class="radio">
+                                            <img src="../icons/income-icons/weekly.png" class="weekly">
+                                            <input type="radio" name="adultIncome"
+                                            id="weeklyAdultIncome" value="2"
+                                            ng-model="currentAdult.information.income.frequency" />
+                                            <label for="weeklyAdultIncome">Weekly</label>
+                                        </div>
+                                        <div class="radio">
+                                            <img src="../icons/income-icons/biweekly.png" class="biweekly">
+                                            <input type="radio" name="adultIncome"
+                                            id="biweeklyAdultIncome" value="3"
+                                            ng-model="currentAdult.information.income.frequency" />
+                                            <label for="biweeklyAdultIncome">Bi-Weekly</label>
+                                        </div>
+                                        <div class="radio">
+                                            <img src="../icons/income-icons/monthly.png" class="monthly">
+                                            <input type="radio" name="adultIncome"
+                                            id="monthlyAdultIncome" value="4"
+                                            ng-model="currentAdult.information.income.frequency" />
+                                            <label for="monthlyAdultIncome">Monthly</label>
+                                        </div>
+                                        <div class="radio">
+                                            <img src="../icons/income-icons/bimonthly.png" class="bimonthly">
+                                            <input type="radio" name="adultIncome"
+                                            id="bimonthlyAdultIncome" value="5"
+                                            ng-model="currentAdult.information.income.frequency" />
+                                            <label for="bimonthlyAdultIncome">Bi-Monthly</label>
+                                        </div>
+                                        <div class="radio">
+                                            <img src="../icons/income-icons/annual.png" class="annual">
+                                            <input type="radio" name="adultIncome"
+                                            id="annualAdultIncome" value="6"
+                                            ng-model="currentAdult.information.income.frequency" />
+                                            <label for="annualAdultIncome">Annual</label>
+                                        </div>
+                                    </div>
                             </div>
                             <button ng-click="addWorkingAdult()" class="tertiarybutton addPersonButton">+ Add person</button>
                         </section>
