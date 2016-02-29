@@ -9,7 +9,6 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
     /**
      * Defaults
      */
-
     $scope.isInitialPage = function() {
         return $scope.currentStep <= 0;
     };
@@ -96,6 +95,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
 
     $scope.children = [];
     $scope.currentChild = newChild();
+
     /**
      * Changes the currentStep, allowing us to paginate through sections.
      * @param {Number} newSectionNumber - the page we should go to
@@ -127,7 +127,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
     $scope.addWorkingAdult = function() {
         var adult = $scope.currentAdult;
 
-        if (adult && !isExistingAdult(adult)) {
+        if (isValidAdult(adult) && !isExistingAdult(adult)) {
             adult.id = $scope.workingAdults.length + 1;
             $scope.workingAdults.push(adult);
             $scope.clearCurrentAdult();
@@ -239,7 +239,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
     $scope.addChild = function() {
         var child = $scope.currentChild;
 
-        if (child && !isExistingChild(child)) {
+        if (isValidChild(child) && !isExistingChild(child)) {
             child.id = $scope.children.length + 1;
             $scope.children.push(child);
             $scope.clearCurrentChild();
@@ -277,5 +277,19 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
         }
 
         return false;
-    }
+    };
+
+    var isValidChild = function(child) {
+        if (!child)
+            return false;
+
+        return child.firstName && child.lastName;
+    };
+
+    var isValidAdult = function(adult) {
+        if (!adult || !adult.information)
+            return false;
+
+        return adult.information.firstName && adult.information.lastName;
+    };
 }]);
