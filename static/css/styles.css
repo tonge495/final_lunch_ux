@@ -250,6 +250,16 @@ select#incomeSource, .amountField input[type="number"] {
     margin-left: 87px;
 }
 
+.adultResults {
+    margin: 25px 0;
+}
+
+.adultName {
+    font-size: 16px;
+}
+
+
+
 /* Name Fields */
 .namefield {
   float:left;
