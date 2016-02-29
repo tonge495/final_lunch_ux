@@ -176,6 +176,12 @@ button {
     margin: 15px 0;
 }
 
+
+.childAmount {
+    margin-top: 20px;
+}
+
+
 /* Income Info fields */
 
 input#middleInitial {
@@ -250,11 +256,15 @@ select#incomeSource, .amountField input[type="number"] {
     margin-left: 87px;
 }
 
-.adultResults {
+.adultResultsSection {
     margin: 25px 0;
 }
 
-.adultName {
+.sourceResults, .adultResults, .childResults {
+  color: #0201ff;
+}
+
+.adultResults, .childResults {
     font-size: 16px;
 }
 
@@ -312,6 +322,10 @@ select#incomeSource, .amountField input[type="number"] {
 
 .lastnamefield {
   width: 46%;
+}
+
+.childButton {
+  float:right;
 }
 
 /* Address fields */
@@ -509,6 +523,14 @@ input[type=radio]:checked + label:before {
 
 .childType {
     margin-bottom: 15px;
+    display: block;
+    margin: auto;
+    vertical-align: top;
+    text-align: center;
+}
+
+p.checkChildType {
+    margin-left: 168px;
 }
 
 /* Links */
