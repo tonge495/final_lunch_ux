@@ -176,6 +176,16 @@ button {
     margin: 15px 0;
 }
 
+img.student, img.foster, img.migrant, img.homeless, img.runaway {
+    width: 50px;
+    margin-bottom: 10px;
+    clear: both;
+    white-space: nowrap;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Income Info fields */
 
 input#middleInitial {
@@ -236,16 +246,6 @@ select#incomeSource, .amountField input[type="number"] {
 .plusSourceLink, .minusSourceLink {
     margin-top: 19px;
     margin-bottom: 10px;
-    width: 10%;
-}
-
-section[name=sources] {
-    width: 79%;
-    float: left;
-}
-
-.frequency {
-    float: left;
 }
 
 .sourcesArea i.fa.fa-minus-circle, .sourcesArea i.fa.fa-plus-circle {
