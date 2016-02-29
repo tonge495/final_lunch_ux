@@ -300,11 +300,13 @@
 
                         <section name="incomeContainer">
                             <section name="adults">
-                                <div class="" ng-repeat="adult in workingAdults">
+                                <div class="adultResults">
+                                <div ng-repeat="adult in workingAdults">
                                     {[{ adult.information.firstName }]} {[{ adult.information.lastName }]}
-                                    <a href="#" ng-click="editAdult(adult)">Edit</a>
+                                    <a href="#" ng-click="editAdult(adult)"><i class="fa fa-pencil-square-o"></i></a>
                                     <a href="#"
-                                        ng-click="removeAdult(adult)">Remove</a>
+                                        ng-click="removeAdult(adult)"><i class="fa fa-minus-circle"></i></a>
+                                </div>
                                 </div>
                                 <div class="">
                                     <div class="incomefirstnamefield namefield">
@@ -319,14 +321,13 @@
                             </section>
                             <div class="sourcesArea">
                                 <section name="sources">
+                                        <div class="sourceResults" ng-repeat="incomeSource in currentAdult.incomeSources">
+                                            Income from {[{ incomeSource.source.name }]}... {[{ incomeSource.amount | currency }]}
+                                        </div>                                   
                                     <div class="minusSourceLink">
-                                            <a href="#" ng-click="clearCurrentAdult()"><i class="fa fa-minus-circle"></i> Cancel</a>
-                                    </div>
+                                            <a href="#" ng-click="clearCurrentAdult()"><i class="fa fa-minus-circle"></i></a>
+                                    </div>                                 
                                         <div class="sourceDropdown">
-                                        <div class="" ng-repeat="incomeSource in currentAdult.incomeSources">
-                                            From {[{ incomeSource.source.name }]}... {[{ incomeSource.amount | currency }]}
-                                        </div>
-
                                             <select name="incomeSource" id="incomeSource" ng-options="source.name for source in incomeSources track by source.id" ng-model="currentAdult.information.income.source"></select>
                                         </div>
                                         <div class="amountField">
@@ -334,7 +335,7 @@
                                             <input type="radio" name="frequency" />
                                         </div>
                                     <div class="plusSourceLink">
-                                            <a href="#" ng-click="saveIncomeSource()"><i class="fa fa-plus-circle"></i> Add</a>
+                                            <a href="#" ng-click="saveIncomeSource()"><i class="fa fa-plus-circle"></i></a>
                                         </div>
                                 </section>
                             </div>
