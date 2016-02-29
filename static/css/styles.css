@@ -258,6 +258,20 @@ select#incomeSource, .amountField input[type="number"] {
     font-size: 16px;
 }
 
+.amountField .radio {
+    display: inline-block;
+}
+
+.frequency {
+    display: block;
+    margin: auto;
+    vertical-align: top;
+    text-align: center;
+}
+
+.frequency .radio {
+    margin: 20px 0;
+}
 
 
 /* Name Fields */
