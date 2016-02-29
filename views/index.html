@@ -426,11 +426,54 @@
                     <p class="confNumber">1234567</p>
                     <p>You will receive a confirmation email shortly.</p>
                  <div class="buttongroup">
-                    <button class="primarybutton reviewButton">Review Submission</button>            
-                </div>
+                    <button ng-click="changeSection(10)" class="primarybutton reviewButton">Review Submission</button>            
+                    <button ng-click="changeSection(8)" class="primarybutton reviewButton">Previous</button>            
+                 </div>
+                
                     <p>Time to eat!  You may close this window.</p>
                 </div>
             </div>
+                <div class="step-10" ng-show="currentStep === 10">
+                    <div class="FinalPage">
+                        <div ng-repeat="child in children">
+                            <div>
+                                <label>{[{child.firstName}]}</label>
+                                <div>
+                                    <label>First Name</label>
+                                    <input ng-model="child.firstName"/>
+                                </div>
+                                <div>
+                                    <label>Middle Name</label>
+                                    <input ng-model="child.middleInitial"/>
+                                </div>
+                                <div>
+                                    <label>Last Name</label>
+                                    <input ng-model="child.lastName"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-repeat="adult in workingAdults">
+                            <div>
+                                <label>{[{adult.firstName}]}</label>
+                                <div>
+                                    <label>First Name</label>
+                                    <input ng-model="adult.information.firstName"/>
+                                </div>
+                                <div>
+                                    <label>Last Name</label>
+                                    <input ng-model="adult.information.lastName"/>
+                                </div>
+                                <div ng-repeat="income in adult.information">
+                                    <div>
+                                        <label>Test</label>
+                                        <input ng-model="currentAdult.information.income.source.amount"/>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                    <button ng-click="changeSection(9)" class="primarybutton reviewButton">Go Back</button>            
+                </div>
             </div>
         </form>
     </div>
