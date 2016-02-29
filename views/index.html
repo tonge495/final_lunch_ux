@@ -423,54 +423,66 @@
                     <div class="notification"><img src="../icons/Apple.png" class="appleIcon"> <p>If you are homeless, you can add a previous, family or friend's, or your shelter's address.</p></div>
                     <div class="firstnamefield addressfield">
                         <label for="firstname">Your First Name</label>
-                        <input type="text" name="firstname" placeholder="Your First Name"><br>
+                        <input type="text" name="firstname" placeholder="Your
+                        First Name" ng-model="user.firstName"><br>
                     </div>
                     <div class="middleinitialfield addressfield">
                         <label for="middleInitial">MI</label>
-                        <input type="text" name="middleinitial" placeholder="MI"><br>
+                        <input type="text" name="middleinitial" placeholder="MI"
+                        ng-model="user.middleInitial"><br>
                     </div>
                     <div class="lastnamefield addressfield">
                         <label for="lastname">Last Name</label>
-                        <input type="text" name="lastname" placeholder="Last Name"><br>
+                        <input type="text" name="lastname" placeholder="Last
+                        Name" ng-model="user.lastName"><br>
                     </div>
                     <div class="streetaddressfield addressfield">
                         <label for="street_address">Street Address</label>
-                        <input type="text" name="street_address" placeholder="Street Address">
+                        <input type="text" name="street_address"
+                        placeholder="Street Address"
+                        ng-model="user.address.street">
                     </div>
                     <div class="aptfield addressfield">
                         <label for="apt_num">Apt. #</label>
-                        <input type="text" name="apt_num" placeholder="Apt. #"><br>
+                        <input type="text" name="apt_num" placeholder="Apt. #"
+                        ng-model="user.address.apartment"><br>
                     </div>
                     <div class="cityfield addressfield">
                         <label for="city">City</label>
-                        <input type="text" name="city" placeholder="City"><br>
+                        <input type="text" name="city" placeholder="City"
+                        ng-model="user.address.city"><br>
                     </div>
                     <div class="statefield addressfield">
                         <label for="state">State</label>
-                        <input type="text" name="state" placeholder="State"><br>
+                        <input type="text" name="state" placeholder="State"
+                        ng-model="user.address.state"><br>
                     </div>
                     <div class="zipcodefield addressfield">
                         <label for="zip_code">Zip Code</label>
-                        <input type="text" name="zip_code" placeholder="Zip Code"><br>
+                        <input type="text" name="zip_code" placeholder="Zip
+                        Code" ng-model="user.address.zipCode"><br>
                     </div>
                     <div class="emailfield addressfield">
                         <label for="email">Email Address</label>
-                        <input type="text" name="email" placeholder="Email Address"><br>
+                        <input type="text" name="email" placeholder="Email
+                        Address" ng-model="user.email"><br>
                     </div>
                     <div class="phonenumberfield addressfield">
                     <label for="phone">Phone Number</label>
-                    <input type="text" name="phone" placeholder="Phone Number"><br>
+                    <input type="text" name="phone" placeholder="Phone Number"
+                    ng-model="user.phoneNumber"><br>
                     </div>
                     <br><br>
                     <div class="initialsfield addressfield">
                         Enter your initials to e-sign<br>
-                        <input type="text" name="initials" placeholder="Initials for E-Sign">
+                        <input type="text" name="initials" placeholder="Initials
+                        for E-Sign" ng-model="user.initials">
                     </div>
                     <br>
                     <div class="buttongroup">
                         <button ng-click="changeSection(3)" class="secondarybutton">Previous</button>
                         <button class="primarybutton floatright"
-                        ng-click="changeSection(9)">Submit</button>
+                        ng-click="postForm()">Submit</button>
                     </div>
                 </div>
                 <div class="step-9" ng-show="currentStep === 9">
@@ -481,7 +493,7 @@
                     <p class="confNumber">1234567</p>
                     <p>You will receive a confirmation email shortly.</p>
                  <div class="buttongroup">
-                    <button class="primarybutton reviewButton">Review Submission</button>            
+                    <button class="primarybutton reviewButton">Review Submission</button>
                 </div>
                     <p>Time to eat!  You may close this window.</p>
                 </div>
