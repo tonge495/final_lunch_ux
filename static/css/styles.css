@@ -176,16 +176,6 @@ button {
     margin: 15px 0;
 }
 
-img.student, img.foster, img.migrant, img.homeless, img.runaway {
-    width: 50px;
-    margin-bottom: 10px;
-    clear: both;
-    white-space: nowrap;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /* Income Info fields */
 
 input#middleInitial {
@@ -410,6 +400,17 @@ select#incomeSource, .amountField input[type="number"] {
   vertical-align: middle;
   margin-right: 5px; 
   float:left; 
+}
+
+img {
+    width: auto;
+    margin-bottom: 10px;
+    clear: both;
+    white-space: nowrap;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
 }
 
 /* Notifications */
