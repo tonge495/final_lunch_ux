@@ -5,7 +5,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
     // `{{ }}` are reserved for the framework's templating engine. This changes
     // Angular's default `{{ }}` to be `{[{ }]}`.
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
-}]).controller('FormController', ['$scope', function ($scope) {
+}]).controller('FormController', ['$scope', '$http', '$q', function ($scope, $http, $q) {
     /**
      * Defaults
      */
@@ -291,5 +291,18 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
             return false;
 
         return adult.information.firstName && adult.information.lastName;
+    };
+
+    $scope.postForm = function() {
+        var defer = $q.defer();
+
+        // Leaving this for testing
+        $http.post('/submit', {
+            email: $scope.user.email
+        }).then(function(response) {
+            console.log(response);
+        });
+
+        $scope.currentStep += 1;
     };
 }]);
