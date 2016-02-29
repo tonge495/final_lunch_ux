@@ -19,7 +19,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
     var selectedLanguage = 'english';
 
     // number of pages to go through
-    var numberOfSteps = 10;
+    var numberOfSteps = 11;
 
     // which languages the user should be able to select from
     // TODO get the list of languages
@@ -42,7 +42,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
 
     // dictates which step we're in. This can be defaulted to a certain step
     // for debugging.
-    var currentStep = 0;
+    var currentStep = 5;
 
     /**
      * Returns an object containing income information. This is useful for
