@@ -42,7 +42,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
 
     // dictates which step we're in. This can be defaulted to a certain step
     // for debugging.
-    var currentStep = 5;
+    var currentStep = 0;
 
     /**
      * Returns an object containing income information. This is useful for
@@ -157,6 +157,7 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
         }
     };
 
+
     /**
      * Sets the provided adult as the `currentAdult`.
      * @param {Object} adult - the selected adult
@@ -266,4 +267,15 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
             $scope.currentChild = child;
         }
     };
+
+    $scope.removeChild = function(child) {
+        var indexOfChild = $scope.children.indexOf(child);
+
+        if (indexOfChild !== -1) {
+            $scope.children.splice(indexOfChild, 1);
+            return true;
+        }
+
+        return false;
+    }
 }]);
