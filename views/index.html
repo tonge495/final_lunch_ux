@@ -41,7 +41,7 @@
                 <div class="enterButtonArea">
                     <button ng-click="changeSection(1)" class="primarybutton enterButton">Enter Here</button>
                 </div>
-               </div>
+            </div>
         </div>
         <form name="registration" id="registration">
             <div class="navigation" ng-hide="!languageSelection">
@@ -410,9 +410,11 @@
                     <div>
                         <h2>What are the last four digits of the Social Security Number of the primary wage earner or other adult household member?</h2><br>
 
-                        XXX-XX-<input type="text" name="ssn" placedholder="XXXX"><br><br>
+                        XXX-XX-<input type="text" name="ssn" placedholder="XXXX"
+                                ng-model="ssn"><br><br>
                         <div class="checkbox">
-                        <input type="checkbox" name="no_ssn" value="NULL">
+                        <input type="checkbox" id="no_ssn" name="no_ssn"
+                        value="NULL" ng-model="no_ssn">
                         <label for="no_ssn">No SSN</label>
                         </div>
                         <div class="buttongroup">
@@ -431,7 +433,7 @@
                     </div>
                     <div class="middleinitialfield addressfield">
                         <label for="middleInitial">MI</label>
-                        <input type="text" name="middleinitial" 
+                        <input type="text" name="middleinitial"
                         ng-model="user.middleInitial"><br>
                     </div>
                     <div class="lastnamefield addressfield">
@@ -482,7 +484,9 @@
                  <h1>Use of Information Statement</h1>
                     <p class="legalText">The Richard B. Russell National School Lunch Act requires the information on this application. You do not have to give the information, but if you do not, we cannot approve your child for free or reduced price meals. You must include the last four digits of the social security number of the adult household member who signs the application. The last four digits of the social security number is not required when you apply on behalf of a foster child or you list a Supplemental Nutrition Assistance Program (SNAP), Temporary Assistance for Needy Families (TANF) Program or Food Distribution Program on Indian Reservations (FDPIR) case number or other FDPIR identifier for your child or when you indicate that the adult household member signing the application does not have a social security number. We will use your information to determine if your child is eligible for free or reduced price meals, and for administra- tion and enforcement of the lunch and breakfast programs. We MAY share your eligibility information with education, health, and nutrition programs to help them evaluate, fund, or determine benefits for their programs, auditors for program reviews, and law enforcement officials to help them look into violations of program rules.</p>
                     <p>The U.S Department of Agriculture prohibits discrimination against its customers, employees, and applicants for employment on the bases of race, color, national origin, age, disability, sex, gender identity, religion, reprisal, and where applicable, political beliefs, marital status, familial or parental status, sexual orientation, or all or part ofan individual’s income is derived from any public assistance program, or protected genetic information in employment or in any program or activity conducted or funded by the Department. (Not all prohibited bases will apply to all programs and/or employ- ment activities.)</p>
-                    <p>If you wish to file a Civil Rights program complaint of discrimination, complete the USDA Program Discrimination Complaint Form, found online at <a href="#">http://www.ascr.us- da.gov/complaint_filing_cust.html</a>, or at any USDA office, or call (866) 632-9992 to request the form. You may also write a letter containing all of the information request- ed in the form. Send your completed complaint form or letter to us by mail at U.S. Department of Agriculture, Director, Office of Adjudication, 1400 Independence Avenue, S.W., Washington, D.C. 20250-9410, by fax (202) 690-7442 or email at program.intake@usda.gov.</p>
+                    <p>If you wish to file a Civil Rights program complaint of
+                    discrimination, complete the USDA Program Discrimination
+                    Complaint Form, found online at <a href="http://www.ascr.us-da.gov/complaint_filing_cust.html" target="_blank">http://www.ascr.us- da.gov/complaint_filing_cust.html</a>, or at any USDA office, or call (866) 632-9992 to request the form. You may also write a letter containing all of the information request- ed in the form. Send your completed complaint form or letter to us by mail at U.S. Department of Agriculture, Director, Office of Adjudication, 1400 Independence Avenue, S.W., Washington, D.C. 20250-9410, by fax (202) 690-7442 or email at program.intake@usda.gov.</p>
                     <p>Individuals who are deaf, hard of hearing or have speech disabilities may contact USDA through the Federal Relay Service at (800) 877-8339; or (800) 845-6136 (Span- ish).</p>
                     <p>USDA is an equal opportunity provider and employer.
                     </p>
