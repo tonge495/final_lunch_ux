@@ -312,4 +312,14 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
 
         $scope.currentStep += 1;
     };
+
+    $scope.pageClassName = function() {
+        if ($scope.currentStep === 0) {
+            return 'landingPage';
+        } else if (Number.isNumber($scope.currentStep)) {
+            return 'page-' + $scope.currentStep;
+        } else {
+            return '';
+        }
+    };
 }]);
