@@ -322,4 +322,39 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
             return '';
         }
     };
+
+    $scope.stepOneClass = function() {
+        return $scope.currentStep < 2 ? 'active' : 'visited'
+    };
+
+    $scope.stepTwoClass = function() {
+        if ($scope.currentStep < 2)
+            return 'inactive';
+        if ($scope.currentStep === 2)
+            return 'active';
+        if ($scope.currentStep > 2)
+            return 'visited';
+    };
+
+    $scope.stepThreeClass = function() {
+        if ($scope.currentStep < 3)
+            return 'inactive';
+        if ($scope.currentStep === 3)
+            return 'active';
+        if ($scope.currentStep > 3)
+            return 'visited';
+    };
+
+    $scope.stepFourClass = function() {
+        if ($scope.currentStep < 4)
+            return 'inactive';
+        if ($scope.currentStep >= 4 && $scope.currentStep <= 7)
+            return 'active';
+        if ($scope.currentStep > 7)
+            return 'visited';
+    };
+
+    $scope.stepFiveClass = function() {
+        return $scope.currentStep < 8 ? 'inactive' : 'active'
+    };
 }]);
