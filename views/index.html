@@ -144,7 +144,7 @@
                                 <img src="../icons/runaway.png" class="runaway">
                                 <input type="checkbox" name="runaway"
                                 id="runaway"
-                                ng-model"currentChild.statuses.runaway" />
+                                ng-model="currentChild.statuses.runaway" />
                                 <label for="runaway">Runaway</label>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                         <div class="nav">
                         <div class="buttongroup">
                             <button ng-click="changeSection(1)" class="secondarybutton">Previous</button>
-                            <button ng-click="changeSection(3)" class="floatright primarybutton">Next</button>
+                            <button ng-click="changeSection(3, addChild)" class="floatright primarybutton">Next</button>
                         </div>
                         </div>
                     </div>
@@ -236,12 +236,12 @@
                         <h2>Do your children earn income?</h2>
                         <div class="radio">
                             <input type="radio" ng-model="childrenDetails.haveIncome"
-                            name="childIncome" id="hasChildIncome" value="1" />
+                            name="hasChildIncome" id="hasChildIncome" value="1" />
                             <label for="hasChildIncome">Yes</label>
                         </div>
                         <div class="radio">
                             <input type="radio" ng-model="childrenDetails.haveIncome"
-                            name="childIncome" id="noChildIncome" value="0" />
+                            name="hasChildIncome" id="noChildIncome" value="0" />
                             <label for="noChildIncome">No</label>
                         </div>
 
@@ -338,6 +338,12 @@
                             <div class="sourcesArea">
                                 <div class="sourceResults" ng-repeat="incomeSource in currentAdult.incomeSources">
                                     Income from {[{ incomeSource.source.name }]}... {[{ incomeSource.amount | currency }]}
+                                    <a href="#"
+                                       ng-click="editIncomeSource(incomeSource)"><i
+                                       class="fa fa-pencil-square-o"></i></a>
+                                    <a href="#"
+                                       ng-click="removeIncomeSource(incomeSource)"><i
+                                       class="fa fa-minus-circle"></i></a>
                                 </div>
                                 <div class="minusSourceLink">
                                     <a href="#" ng-click="clearCurrentAdult()"><i class="fa fa-minus-circle"></i></a>
@@ -402,7 +408,7 @@
                         </section>
                         <div class="buttongroup">
                         <button ng-click="changeSection(5)" class="secondarybutton">Previous</button>
-                        <button ng-click="changeSection(7)" class="primarybutton floatright">Next</button>
+                        <button ng-click="changeSection(7, addWorkingAdult)" class="primarybutton floatright">Next</button>
                         </div>
                     </div>
                 </div>

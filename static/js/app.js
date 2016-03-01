@@ -100,8 +100,12 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
      * Changes the currentStep, allowing us to paginate through sections.
      * @param {Number} newSectionNumber - the page we should go to
      */
-    $scope.changeSection = function(newSectionNumber) {
+    $scope.changeSection = function(newSectionNumber, callback) {
         $scope.currentStep = newSectionNumber;
+
+        if (callback && typeof(callback) == 'function') {
+            callback();
+        }
     };
 
 
@@ -157,13 +161,32 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
         }
     };
 
+    $scope.editIncomeSource = function(source) {
+        if ($scope.removeIncomeSource(source)) {
+            $scope.currentAdult.information.income = source;
+            return true;
+        }
+
+        return false;
+    };
+
+    $scope.removeIncomeSource = function(source) {
+        var indexOfIncomeSource = $scope.currentAdult.incomeSources.indexOf(source);
+
+        if (indexOfIncomeSource !== -1) {
+            $scope.currentAdult.incomeSources.splice(indexOfIncomeSource, 1);
+            return true;
+        }
+
+        return false;
+    };
 
     /**
      * Sets the provided adult as the `currentAdult`.
      * @param {Object} adult - the selected adult
      */
     $scope.editAdult = function(adult) {
-        if ($scope.removeAdult()) {
+        if ($scope.removeAdult(adult)) {
             $scope.currentAdult = adult;
             return true;
         }
@@ -260,12 +283,11 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
     };
 
     $scope.editChild = function(child) {
-        var indexOfChild = $scope.children.indexOf(child);
-
-        if (indexOfChild !== -1) {
-            $scope.children.splice(indexOfChild, 1);
+        if ($scope.removeChild(child)) {
             $scope.currentChild = child;
+            return true;
         }
+        return false;
     };
 
     $scope.removeChild = function(child) {
