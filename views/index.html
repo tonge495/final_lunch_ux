@@ -1,14 +1,14 @@
 <!doctype>
 <html ng-app="uxlunch">
   <head>
-    <link rel="stylesheet" href="../static/css/reset.css" />
-    <link rel="stylesheet" href="../static/css/styles.css" />
+    <link type="text/css" rel="stylesheet" href="../static/css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="../static/css/styles.css" />
     <meta http-equiv="content-type" content="text-html; charset=utf-8">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  </head>
-  <body ng-controller="FormController as formController"
+<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body ng-controller="FormController as formController"
         ng-class="{landingPage: isInitialPage()}" class="page-{[{ currentStep
         }]}">
     <div class="content">
@@ -522,28 +522,6 @@
             </div>
         </form>
     </div>
-    <footer>
-        <label for="step-1-footer" class="{[{ stepOneClass() }]}">
-            <img src="../icons/Apple.png" alt="Smart + Benefits" />
-        </label>
-        <a href="#" class="step-1" id="step-1-footer">Smart + Benefits</a>
-        <label for="step-1-footer" class="{[{ stepTwoClass() }]}">
-            <img src="../icons/Sandwich.png" alt="Child Information" />
-        </label>
-        <a href="#" class="step-2" id="step-2-footer">Child Information</a>
-        <label for="step-3-footer" class="{[{ stepThreeClass() }]}">
-            <img src="../icons/Milk.png" alt="Gov. Aid Programs" />
-        </label>
-        <a href="#" class="step-3" id="step-3-footer">Gov. Aid Programs</a>
-        <label for="step-4-footer" class="{[{ stepFourClass() }]}">
-            <img src="../icons/Fries.png" alt="Income Information" />
-        </label>
-        <a href="#" class="step-4" id="step-4-footer">Income Information</a>
-        <label for="step-5-footer" clas="{[{ stepFiveClass() }]}">
-            <img src="../icons/Cup.png" alt="E-sign + Finish" />
-        </label>
-        <a href="#" class="step-5" id="step-5-footer">E-sign + Finish</a>
-    </footer>
     <script src="../static/js/angular.min.js"></script>
     <script src="../static/js/app.js"></script>
   </body>
