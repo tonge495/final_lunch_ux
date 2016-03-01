@@ -96,19 +96,18 @@
                             <div class="firstnamefield childfield">
                                 <label for="firstName">First name</label>
                                 <input type="text" name="firstName"
-                                id="firstName" placeholder="First Name"
+                                id="firstName"
                                 ng-model="currentChild.firstName"/>
                             </div>
                             <div class="middleinitialfield childfield">
                                 <label for="middleInitial">MI</label>
                                 <input type="text" name="middleInitial"
-                                id="middleInitial"  placeholder="MI"
+                                id="middleInitial"
                                 ng-model="currentChild.middleInitial"/>
                             </div>
                             <div class="lastnamefield childfield">
                                 <label for="lastName">Last Name</label>
                                 <input type="text" name="lastName" id="lastname"
-                                placeholder="Last Name"
                                 ng-model="currentChild.lastName" />
                             </div>
                         </div>
@@ -207,7 +206,7 @@
                                 <label class="small" for="caseNumber">
                                     Case Number
                                 </label>
-                                <input type="text" name="caseNumber" id="caseNumber" ng-model="program.caseNumber" placeholder="Case Number" />
+                                <input type="text" name="caseNumber" id="caseNumber" ng-model="program.caseNumber" placeholder="XX-XXX-XX-XXX(XXX)" />
                             </div>
                             <div ng-show="program.hasCaseNumber == 'false'" class="small">
                                 <a href="#" class="caseNumberHelp">Please help me find my case number.</a>
@@ -328,11 +327,11 @@
                                 <div class="">
                                     <div class="incomefirstnamefield namefield">
                                     <label for="firstName">First Name</label><br>
-                                    <input type="text" name="firstName" placeholder="First name" ng-model="currentAdult.information.firstName" />
+                                    <input type="text" name="firstName" ng-model="currentAdult.information.firstName" />
                                     </div>
                                     <div class="incomelastnamefield namefield">
                                     <label for="lastName">Last Name</label><br>
-                                    <input type="text" name="lastName" placeholder="Last name" ng-model="currentAdult.information.lastName" />
+                                    <input type="text" name="lastName" ng-model="currentAdult.information.lastName" />
                                     </div>
                                 </div>
                             </section>
@@ -411,7 +410,7 @@
                     <div>
                         <h2>What are the last four digits of the Social Security Number of the primary wage earner or other adult household member?</h2><br>
 
-                        XXX-XX-<input type="text" name="ssn"><br><br>
+                        XXX-XX-<input type="text" name="ssn" placedholder="XXXX"><br><br>
                         <div class="checkbox">
                         <input type="checkbox" name="no_ssn" value="NULL">
                         <label for="no_ssn">No SSN</label>
@@ -428,51 +427,48 @@
                     <div class="notification"><img src="../icons/Apple.png" class="appleIcon"> <p>If you are homeless, you can add a previous, family or friend's, or your shelter's address.</p></div>
                     <div class="firstnamefield addressfield">
                         <label for="firstname">Your First Name</label>
-                        <input type="text" name="firstname" placeholder="Your First Name" ng-model="user.firstName"><br>
+                        <input type="text" name="firstname" ng-model="user.firstName"><br>
                     </div>
                     <div class="middleinitialfield addressfield">
                         <label for="middleInitial">MI</label>
-                        <input type="text" name="middleinitial" placeholder="MI"
+                        <input type="text" name="middleinitial" 
                         ng-model="user.middleInitial"><br>
                     </div>
                     <div class="lastnamefield addressfield">
                         <label for="lastname">Last Name</label>
-                        <input type="text" name="lastname" placeholder="Last
-                        Name" ng-model="user.lastName"><br>
+                        <input type="text" name="lastname" ng-model="user.lastName"><br>
                     </div>
                     <div class="streetaddressfield addressfield">
                         <label for="street_address">Street Address</label>
                         <input type="text" name="street_address"
-                        placeholder="Street Address"
                         ng-model="user.address.street">
                     </div>
                     <div class="aptfield addressfield">
                         <label for="apt_num">Apt. #</label>
-                        <input type="text" name="apt_num" placeholder="Apt. #"
+                        <input type="text" name="apt_num"
                         ng-model="user.address.apartment"><br>
                     </div>
                     <div class="cityfield addressfield">
                         <label for="city">City</label>
-                        <input type="text" name="city" placeholder="City"
+                        <input type="text" name="city"
                         ng-model="user.address.city"><br>
                     </div>
                     <div class="statefield addressfield">
                         <label for="state">State</label>
-                        <input type="text" name="state" placeholder="State"
+                        <input type="text" name="state"
                         ng-model="user.address.state"><br>
                     </div>
                     <div class="zipcodefield addressfield">
                         <label for="zip_code">Zip Code</label>
-                        <input type="text" name="zip_code" placeholder="Zip
-                        Code" ng-model="user.address.zipCode"><br>
+                        <input type="text" name="zip_code" ng-model="user.address.zipCode"><br>
                     </div>
                     <div class="emailfield addressfield">
                         <label for="email">Email Address</label>
-                        <input type="text" name="email" placeholder="Email Address" ng-model="user.email"><br>
+                        <input type="text" name="email" ng-model="user.email"><br>
                     </div>
                     <div class="phonenumberfield addressfield">
                     <label for="phone">Phone Number</label>
-                    <input type="text" name="phone" placeholder="Phone Number"
+                    <input type="text" name="phone"
                     ng-model="user.phoneNumber"><br>
                     </div>
                     <div class="buttongroup">
