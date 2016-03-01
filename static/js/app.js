@@ -379,4 +379,8 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
     $scope.stepFiveClass = function() {
         return $scope.currentStep < 8 ? 'inactive' : 'active'
     };
+
+    $scope.openTab = function(url) {
+        window.open(url, '_blank');
+    };
 }]);
