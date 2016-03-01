@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body ng-controller="FormController as formController"
-        ng-class="{landingPage: isInitialPage()}">
+        ng-class="{landingPage: isInitialPage()}" class="page-{[{ currentStep
+        }]}">
     <div class="content">
         <div class="landing" ng-show="currentStep === 0" ng-model="selectedLanguage">
             <h1 class="subtitle">Welcome to the</h1>
