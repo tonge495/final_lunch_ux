@@ -73,6 +73,12 @@ button.primarybutton.enterButton {
     font-size: 18px;
 }
 
+.enterButtonArea {
+    clear: both;
+    text-align: center;
+    padding:20px 0;
+}
+
 /* Typography */
 h1, h2, h3, button {
 	font-family: 'Montserrat', sans-serif;
@@ -169,6 +175,10 @@ button {
     clear: left;
     width: 20%;
     margin-top: 15px;
+}
+
+.alternative .radio {
+    margin-bottom: 10px;
 }
 
 /* Child Income fields */
@@ -550,3 +560,5 @@ a:hover {
 .confNumber {
   font-size: 20px;
 }
+
+/* Footer */
